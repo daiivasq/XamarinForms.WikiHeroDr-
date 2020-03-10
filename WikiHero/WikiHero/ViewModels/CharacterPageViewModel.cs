@@ -65,8 +65,8 @@ namespace WikiHero.ViewModels
             try
             {
                 var list = await apiComicsVine.GetAllCharacter(offset);
-                var marvel = list.Where(e => e.Publisher.Name.Contains(PublisherName));
-                Characters = new ObservableCollection<Character>(marvel);
+                var characters = list.Where(e => e.Publisher.Name.Contains(PublisherName));
+                Characters = new ObservableCollection<Character>(characters);
             }
             catch (Exception ex)
             {
