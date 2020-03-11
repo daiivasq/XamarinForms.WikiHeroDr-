@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+            xmlns:local="clr-namespace:WikiHero.Views.DcComicsViews"
+            mc:Ignorable="d"
+             x:Class="WikiHero.Views.DcComicsViews.TappedDcComicsPage">
+
+
+    <NavigationPage Title="HomeDc">
+        <x:Arguments>
+            <local:DcHomePage/>
+        </x:Arguments>
+    </NavigationPage>
+    <NavigationPage Title="MoviesDc">
+        <x:Arguments>
+            <local:DcMoviesPage/>
+        </x:Arguments>
+    </NavigationPage>
+    <NavigationPage Title="SeriesDc">
+        <x:Arguments>
+            <local:DcSeriesPage/>
+        </x:Arguments>
+    </NavigationPage>
+    <NavigationPage Title="ComicsDc">
+        <x:Arguments>
+            <local:DcComicsPage/>
+        </x:Arguments>
+    </NavigationPage>
+    <NavigationPage Title="CharactersDc">
+        <x:Arguments>
+            <local:DcCharactersPage/>
+        </x:Arguments>
+    </NavigationPage>
+</TabbedPage>

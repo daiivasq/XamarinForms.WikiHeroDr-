@@ -21,6 +21,62 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Views\" />
+    <Compile Update="Views\DcComicsViews\DcCharactersPage.xaml.cs">
+      <DependentUpon>DcCharactersPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\DcComicsViews\DcSeriesPage.xaml.cs">
+      <DependentUpon>DcSeriesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\DcComicsViews\DcHomePage.xaml.cs">
+      <DependentUpon>DcHomePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\DcComicsViews\DcMoviesPage.xaml.cs">
+      <DependentUpon>DcMoviesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\DcComicsViews\DcComicsPage.xaml.cs">
+      <DependentUpon>DcComicsPage.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Views\DcComicsViews\DcCharactersPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\DcComicsViews\DcComicsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\DcComicsViews\DcHomePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\DcComicsViews\DcMoviesPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\DcComicsViews\DcSeriesPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\DcComicsViews\TappedDcComicsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\MarvelViews\MarvelCharactersPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\MarvelViews\MarvelComicsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\MarvelViews\MarvelHomePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\MarvelViews\MarvelMoviesPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\MarvelViews\MarvelSeriesPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\MarvelViews\TappedMarvelPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\MarvelVsDcComicsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>

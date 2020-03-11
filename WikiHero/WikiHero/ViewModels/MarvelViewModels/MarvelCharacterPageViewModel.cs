@@ -12,10 +12,10 @@ using WikiHero.Services;
 
 namespace WikiHero.ViewModels.MarvelViewModels
 {
-    public class MarvelViewModels : CharacterPageViewModel
+    public class MarvelCharacterPageViewModel : CharacterPageViewModel
     {
         private const string Marvel = "Marvel";
-        public MarvelViewModels(INavigationService navigationService, IPageDialogService dialogService, ApiComicsVine apiComicsVine, int offeset=100) :base(navigationService, dialogService, apiComicsVine,Marvel, offeset)
+        public MarvelCharacterPageViewModel(INavigationService navigationService, IPageDialogService dialogService, ApiComicsVine apiComicsVine, int offeset=100) :base(navigationService, dialogService, apiComicsVine,Marvel, offeset)
         {
             LoadMarvelCharacters(offeset);
         }

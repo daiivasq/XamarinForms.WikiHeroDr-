@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+            xmlns:local="clr-namespace:WikiHero.Views.MarvelViews"
+            mc:Ignorable="d"
+             x:Class="WikiHero.Views.MarvelViews.TappedMarvelPage">
+
+    <NavigationPage Title="HomeMarvel">
+        <x:Arguments>
+            <local:MarvelHomePage/>
+        </x:Arguments>
+    </NavigationPage>
+    <NavigationPage Title="MoviesMarvel">
+        <x:Arguments>
+            <local:MarvelMoviesPage/>
+        </x:Arguments>
+    </NavigationPage>
+    <NavigationPage Title="SeriesMarvel">
+        <x:Arguments>
+            <local:MarvelSeriesPage/>
+        </x:Arguments>
+    </NavigationPage>
+    <NavigationPage Title="ComicsMarvel">
+        <x:Arguments>
+            <local:MarvelComicsPage/>
+        </x:Arguments>
+    </NavigationPage>
+    <NavigationPage Title="CharactersMarvel">
+        <x:Arguments>
+            <local:MarvelCharactersPage/>
+        </x:Arguments>
+    </NavigationPage>
+</TabbedPage>
