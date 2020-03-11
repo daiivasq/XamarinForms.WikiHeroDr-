@@ -10339,6 +10339,12 @@ namespace WikiHero.Droid
 			// aapt resource value: 0x7F07007C
 			public const int VS = 2131165308;
 			
+			// aapt resource value: 0x7F07007D
+			public const int VS3 = 2131165309;
+			
+			// aapt resource value: 0x7F07007E
+			public const int VSsmall = 2131165310;
+			
 			static Drawable()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();

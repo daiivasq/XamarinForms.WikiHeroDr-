@@ -17,7 +17,7 @@ namespace WikiHero.ViewModels.DCViewModels
         private const string DC_Comics = "DC Comics";
         public DCCharactersPageViewModel(INavigationService navigationService, IPageDialogService dialogService, ApiComicsVine apiComicsVine, int offeset = 100) : base(navigationService, dialogService, apiComicsVine, DC_Comics, offeset)
         {
-            LoadMarvelCharacters(offeset);
+            LoadCharacters(offeset);
         }
     }
 }
