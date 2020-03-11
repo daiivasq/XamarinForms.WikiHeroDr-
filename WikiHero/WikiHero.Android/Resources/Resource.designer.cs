@@ -10328,7 +10328,16 @@ namespace WikiHero.Droid
 			public const int tooltip_frame_light = 2131165304;
 			
 			// aapt resource value: 0x7F070079
-			public const int Versus = 2131165305;
+			public const int versus1 = 2131165305;
+			
+			// aapt resource value: 0x7F07007A
+			public const int versusPrincipal = 2131165306;
+			
+			// aapt resource value: 0x7F07007B
+			public const int versusR = 2131165307;
+			
+			// aapt resource value: 0x7F07007C
+			public const int VS = 2131165308;
 			
 			static Drawable()
 			{

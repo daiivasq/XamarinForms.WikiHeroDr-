@@ -8,8 +8,12 @@
              x:Class="WikiHero.Views.MarvelVsDcComicsPage">
     <ContentPage.Content>
         <ScrollView>
-            <PrincipalPancake:PancakeView BackgroundGradientEndColor="Red" BackgroundGradientStartColor="Yellow" BackgroundGradientAngle="0">
-
+            
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+             
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
@@ -19,18 +23,19 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    
+
+                    <Image Source="versusPrincipal.jpg" Grid.RowSpan="3" HeightRequest="250" Aspect="Fill" />
                     <PrincipalPancake:PancakeView CornerRadius="0,0,0,500"  Grid.Row="0" >
 
                         <Image Source="Marvel.jpg" Grid.Row="0" HeightRequest="400" Aspect="AspectFill">
                             <Image.GestureRecognizers>
-                                <TapGestureRecognizer  NumberOfTapsRequired="1" Command="{Binding DcComicsCommand}"/>
+                                <TapGestureRecognizer  NumberOfTapsRequired="1" Command="{Binding DcUniverseCommand}"/>
                             </Image.GestureRecognizers>
                             
                         </Image>
 
                     </PrincipalPancake:PancakeView>
-                    
+
                     <PrincipalPancake:PancakeView CornerRadius="500,0,0,0" Grid.Row="2" >
 
                         <Image Source="DcComics.jpg" Grid.Row="2" HeightRequest="450"  Aspect="AspectFill">
@@ -41,10 +46,9 @@
                         </Image>
 
                     </PrincipalPancake:PancakeView>
-                    <Image Source="Versus.jfif" Grid.Row="1" />
                 </Grid>
-
-            </PrincipalPancake:PancakeView>
+                <Image Source="VS.png" Margin="30,-60,20,0" HeightRequest="100" />
+            </Grid>
         </ScrollView>
       
     </ContentPage.Content>

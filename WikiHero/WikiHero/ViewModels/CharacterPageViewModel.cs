@@ -60,7 +60,7 @@ namespace WikiHero.ViewModels
                 IsBusy = false;
             }
         }
-      protected async Task LoadMarvelCharacters(int offset)
+      protected async Task LoadCharacters(int offset)
         {
             try
             {
