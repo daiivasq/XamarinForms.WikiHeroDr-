@@ -20,7 +20,7 @@ namespace WikiHero
         protected override void OnInitialized()
         {
             InitializeComponent();
-            NavigationService.NavigateAsync(new Uri(ConfigPageUri.MarvelVsDcComicsPage));
+            NavigationService.NavigateAsync(new Uri(ConfigPageUri.MarvelCharactersPage));
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
