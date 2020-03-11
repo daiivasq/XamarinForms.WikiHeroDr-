@@ -4,7 +4,7 @@ using System.Text;
 
 namespace WikiHero.ViewModels.DCViewModels
 {
-    public class DcHomePageViewModel
+    public class DcHomePageViewModel 
     {
     }
 }

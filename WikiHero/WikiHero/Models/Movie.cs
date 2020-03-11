@@ -66,5 +66,13 @@ namespace WikiHero.Models
 
         [JsonProperty("writers")]
         public IList<Writer> Writers { get; set; }
+
+
+    }
+
+    public class ResultMovies
+    {
+        [JsonProperty("results")]
+        public IList<Movie> Results { get; set; }
     }
 }
