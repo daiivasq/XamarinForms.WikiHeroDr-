@@ -62,7 +62,7 @@ namespace WikiHero.ViewModels
                 IsBusy = false;
             }
         }
-        protected async Task LoadMarvelMovies(int offset)
+        protected async Task LoadMovies(int offset)
         {
             try
             {

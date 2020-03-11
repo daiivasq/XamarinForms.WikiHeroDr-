@@ -42,7 +42,7 @@ namespace WikiHero.Models
         public string StartYear { get; set; }
     }
 
-    public class ResultSerie
+    public class ResultSeries
     {
 
         [JsonProperty("results")]

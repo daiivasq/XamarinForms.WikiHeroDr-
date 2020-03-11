@@ -13,27 +13,26 @@ using WikiHero.Services;
 
 namespace WikiHero.ViewModels
 {
-    public class ComicPageViewModel : BaseViewModel
+    public class SeriePageViewModel : BaseViewModel
     {
-        public ObservableCollection<Comic> Comics { get; set; } = new ObservableCollection<Comic>();
+        public ObservableCollection<Serie> Series { get; set; } = new ObservableCollection<Serie>();
         public int ItemTreshold { get; set; }
         public bool IsBusy { get; set; }
-        public string WriterName { get; set; }
+        public string StudioName { get; set; }
         public DelegateCommand ItemTresholdReachedCommand { get; set; }
 
 
-        public ComicPageViewModel(INavigationService navigationService, IPageDialogService dialogService, ApiComicsVine apiComicsVine, string writerName, int offeset) : base(navigationService, dialogService, apiComicsVine)
+        public SeriePageViewModel(INavigationService navigationService, IPageDialogService dialogService, ApiComicsVine apiComicsVine, string studioName, int offeset) : base(navigationService, dialogService, apiComicsVine)
         {
-            this.WriterName = writerName;
+            this.StudioName = studioName;
             ItemTresholdReachedCommand = new DelegateCommand(async () =>
             {
                 offeset = offeset + 100;
-                await ScrollLoadComics(offeset);
+                await ScrollLoadSeries(offeset);
             });
         }
 
-
-        protected async Task ScrollLoadComics(int offset)
+        protected async Task ScrollLoadSeries(int offset)
         {
             if (IsBusy)
                 return;
@@ -42,11 +41,11 @@ namespace WikiHero.ViewModels
 
             try
             {
-                var items = await apiComicsVine.GetAllComics(offset);
+                var items = await apiComicsVine.GetAllSeries(offset);
                 //var marvel = items.Where(e => e.Publisher.Name.Contains(PublisherName));
-                foreach (var item in items.Results)
+                foreach (var item in items.Series)
                 {
-                    Comics.Add(item);
+                    Series.Add(item);
                 }
                 if (offset == 1000)
                 {
@@ -63,13 +62,12 @@ namespace WikiHero.ViewModels
                 IsBusy = false;
             }
         }
-        protected async Task LoadComics(int offset)
+        protected async Task LoadSeries(int offset)
         {
             try
             {
-                var list = await apiComicsVine.GetAllComics(offset);
-                //var comics = list.Where(e => e.Publisher.Name.Contains(PublisherName));
-                Comics = new ObservableCollection<Comic>(list.Results);
+                var list = await apiComicsVine.GetAllSeries(offset);
+                Series = new ObservableCollection<Serie>(list.Series);
             }
             catch (Exception ex)
             {
@@ -79,5 +77,6 @@ namespace WikiHero.ViewModels
             }
 
         }
+    
     }
 }

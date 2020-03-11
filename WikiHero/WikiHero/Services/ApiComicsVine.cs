@@ -23,11 +23,19 @@ namespace WikiHero.Services
             var movies = await getRequest.GetAllMovies(Config.Apikey,offset);
             return movies;
         } 
+
         public async Task<ResultComics> GetAllComics(int offset)
         {
             var getRequest = RestService.For<IApiComicsVine>(Config.UrlApiComicsVine);
             var comics = await getRequest.GetAllComics(Config.Apikey,offset);
             return comics;
+        }
+        
+        public async Task<ResultSeries> GetAllSeries(int offset)
+        {
+            var getRequest = RestService.For<IApiComicsVine>(Config.UrlApiComicsVine);
+            var series = await getRequest.GetAllSeries(Config.Apikey,offset);
+            return series;
         }
     }
 }
