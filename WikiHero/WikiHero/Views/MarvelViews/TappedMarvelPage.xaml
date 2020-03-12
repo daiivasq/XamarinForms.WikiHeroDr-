@@ -5,7 +5,6 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
             xmlns:local="clr-namespace:WikiHero.Views.MarvelViews"
             mc:Ignorable="d"
-<<<<<<< HEAD
              x:Class="WikiHero.Views.MarvelViews.TappedMarvelPage"
               xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
               android:TabbedPage.ToolbarPlacement="Bottom"
