@@ -17,20 +17,6 @@ namespace WikiHero.Services
             var notNull = from item in characters.Characters where item.Publisher != null select item;
             return notNull.ToList(); ;
         }
-        public async Task<List<Movie>> GetFindMarvelMovies(string name)
-        {
-            var getRequest = RestService.For<IApiComicsVine>(Config.UrlApiComicsVine);
-            var movies = await getRequest.GetFindMovies(Config.Apikey, name);
-            var comics = movies.Results.Where(e => e.Studios.Exists(x => x.Id != 574 && x.Id != 10));
-            return comics.ToList();
-        }
-        public async Task<List<Movie>> GetFindDcMovies(string name)
-        {
-            var getRequest = RestService.For<IApiComicsVine>(Config.UrlApiComicsVine);
-            var movies = await getRequest.GetFindMovies(Config.Apikey, name);
-            var comics = movies.Results.Where(e => e.Studios.Exists(x => x.Id != 5453 && x.Id != 31));
-            return comics.ToList();
-        }
 
         public async Task<List<Volume>> GetAllVolumes(int offset)
         {

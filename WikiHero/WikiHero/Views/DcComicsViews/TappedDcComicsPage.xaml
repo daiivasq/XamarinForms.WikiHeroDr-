@@ -18,12 +18,12 @@
     </NavigationPage>
 
     <NavigationPage Title="Series" IconImageSource="ic_action_tv.png" BarBackgroundColor="{StaticResource DCPrincipalColor}">
-        <NavigationPage Title="SeriesDc">
-            <x:Arguments>
-                <local:DcSeriesPage Title="Series"/>
-            </x:Arguments>
-        </NavigationPage>
-        <NavigationPage Title="Comics" IconImageSource="comic.png" BarBackgroundColor="{StaticResource DCPrincipalColor}">
+        <x:Arguments>
+            <local:DcSeriesPage Title="Series"/>
+        </x:Arguments>
+    </NavigationPage>
+
+    <NavigationPage Title="Comics" IconImageSource="comic.png" BarBackgroundColor="{StaticResource DCPrincipalColor}">
         <x:Arguments>
             <local:DcComicsPage Title="Comics"/>
         </x:Arguments>

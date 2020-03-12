@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using WikiHero.Models;
 using WikiHero.Services;
+using Xamarin.Essentials;
 
 namespace WikiHero.ViewModels
 {
@@ -62,18 +63,24 @@ namespace WikiHero.ViewModels
         }
       protected async Task LoadCharacters(int offset)
         {
-            try
+            if (Connectivity.NetworkAccess == NetworkAccess.Internet)
             {
-                var list = await apiComicsVine.GetAllCharacter(offset);
-                var characters = list.Where(e => e.Publisher.Name.Contains(PublisherName));
-                Characters = new ObservableCollection<Character>(characters);
-            }
-            catch (Exception ex)
-            {
+                try
+                {
 
-               await dialogService.DisplayAlertAsync("Error",$"{ex.Message}","Ok");
+                    var list = await apiComicsVine.GetAllCharacter(offset);
+                    var characters = list.Where(e => e.Publisher.Name.Contains(PublisherName));
+                    Characters = new ObservableCollection<Character>(characters);
+                }
+                catch (Exception ex)
+                {
 
+                    await dialogService.DisplayAlertAsync("Error", $"{ex.Message}", "Ok");
+
+                }
             }
+            else
+                await dialogService.DisplayAlertAsync("Connection error ", Connectivity.NetworkAccess.ToString(), "Ok");
 
         }
     }

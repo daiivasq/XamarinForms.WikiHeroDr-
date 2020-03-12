@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{736BC13C-DCB7-4290-B45B-5DF6297C4425}</ProjectGuid>
+    <ProjectGuid>{3FB09815-3891-4600-9731-40A38A448FC8}</ProjectGuid>
     <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <TemplateGuid>{6143fdea-f3c2-4a09-aafa-6e230626515e}</TemplateGuid>
     <OutputType>Exe</OutputType>
@@ -143,56 +143,8 @@
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
     <ProjectReference Include="..\WikiHero\WikiHero.csproj">
-      <Project>{D3AF7382-8579-4C6A-B87F-B7611A4E8627}</Project>
+      <Project>{2A332780-6331-42A3-86CC-B7517061EB7B}</Project>
       <Name>WikiHero</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\BackgroundMarvelAndDc.jpg">
-      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
-      <SubType>Designer</SubType>
-    </AndroidResource>
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\comic.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\dc.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\DcCharacters.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\DcComics.jpg">
-      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
-      <SubType>Designer</SubType>
-    </AndroidResource>
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\Homemarvel.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\ic_action_tv.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\Marvel.jpg">
-      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
-      <SubType>Designer</SubType>
-    </AndroidResource>
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\MarvelCharacter.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\versusPrincipal.jpg">
-      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
-      <SubType>Designer</SubType>
-    </AndroidResource>
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\VS3.png">
-      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
-      <SubType>Designer</SubType>
-    </AndroidResource>
   </ItemGroup>
 </Project>

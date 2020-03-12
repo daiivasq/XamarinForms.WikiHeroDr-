@@ -12,7 +12,6 @@ using WikiHero.Views.DcComicsViews;
 using WikiHero.Views.MarvelViews;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-
 namespace WikiHero
 {
     public partial class App : PrismApplication
@@ -22,8 +21,8 @@ namespace WikiHero
         protected override void OnInitialized()
         {
             InitializeComponent();
-            NavigationService.NavigateAsync(new Uri($"{ConfigPageUri.MarvelVsDcComicsPage}",UriKind.Absolute));
-            
+            NavigationService.NavigateAsync(new Uri($"{ConfigPageUri.MarvelVsDcComicsPage}", UriKind.Absolute));
+
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
