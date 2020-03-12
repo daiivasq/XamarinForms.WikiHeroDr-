@@ -13,11 +13,6 @@
             <local:DcHomePage/>
         </x:Arguments>
     </NavigationPage>
-    <NavigationPage Title="MoviesDc">
-        <x:Arguments>
-            <local:DcMoviesPage/>
-        </x:Arguments>
-    </NavigationPage>
     <NavigationPage Title="SeriesDc">
         <x:Arguments>
             <local:DcSeriesPage/>

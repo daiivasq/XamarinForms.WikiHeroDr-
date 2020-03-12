@@ -35,15 +35,13 @@ namespace WikiHero
             containerRegistry.RegisterForNavigation<MarvelCharactersPage, MarvelCharacterPageViewModel>();
             containerRegistry.RegisterForNavigation<MarvelComicsPage, MarvelComicsPageViewModel>();
             containerRegistry.RegisterForNavigation<MarvelHomePage, MarvelHomePageViewModel>();
-            containerRegistry.RegisterForNavigation<MarvelSeriesPage, MarvelCharacterPageViewModel>();
-            containerRegistry.RegisterForNavigation<MarvelMoviesPage, MarvelMoviesPageViewModel>();
+            containerRegistry.RegisterForNavigation<MarvelSeriesPage, MarvelSeriesPageViewModel>();
             containerRegistry.RegisterForNavigation<TappedMarvelPage, TappedMarvelPageViewModel>();
             //RegisterDC
             containerRegistry.RegisterForNavigation<DcCharactersPage, DCCharactersPageViewModel>();
             containerRegistry.RegisterForNavigation<DcComicsPage, DcComicsPageViewModel>();
             containerRegistry.RegisterForNavigation<DcHomePage, DcHomePageViewModel>();
             containerRegistry.RegisterForNavigation<DcSeriesPage, DcSeriesPageViewModel>();
-            containerRegistry.RegisterForNavigation<DcMoviesPage, DcMoviesPageViewModel>();
             containerRegistry.RegisterForNavigation<TappedDcComicsPage, TappedDcComicsPageViewModel>();
 
 

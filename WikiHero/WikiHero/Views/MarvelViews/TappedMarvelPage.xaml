@@ -7,27 +7,22 @@
             mc:Ignorable="d"
              x:Class="WikiHero.Views.MarvelViews.TappedMarvelPage">
 
-    <NavigationPage Title="HomeMarvel">
+    <NavigationPage Title="Home Marvel">
         <x:Arguments>
             <local:MarvelHomePage/>
         </x:Arguments>
     </NavigationPage>
-    <NavigationPage Title="MoviesMarvel">
-        <x:Arguments>
-            <local:MarvelMoviesPage/>
-        </x:Arguments>
-    </NavigationPage>
-    <NavigationPage Title="SeriesMarvel">
+    <NavigationPage Title="Series Marvel">
         <x:Arguments>
             <local:MarvelSeriesPage/>
         </x:Arguments>
     </NavigationPage>
-    <NavigationPage Title="ComicsMarvel">
+    <NavigationPage Title="Comics Marvel">
         <x:Arguments>
             <local:MarvelComicsPage/>
         </x:Arguments>
     </NavigationPage>
-    <NavigationPage Title="CharactersMarvel">
+    <NavigationPage Title="Characters Marvel">
         <x:Arguments>
             <local:MarvelCharactersPage/>
         </x:Arguments>

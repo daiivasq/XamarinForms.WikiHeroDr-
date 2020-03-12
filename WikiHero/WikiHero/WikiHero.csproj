@@ -30,9 +30,6 @@
     <Compile Update="Views\DcComicsViews\DcHomePage.xaml.cs">
       <DependentUpon>DcHomePage.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Views\DcComicsViews\DcMoviesPage.xaml.cs">
-      <DependentUpon>DcMoviesPage.xaml</DependentUpon>
-    </Compile>
     <Compile Update="Views\DcComicsViews\DcComicsPage.xaml.cs">
       <DependentUpon>DcComicsPage.xaml</DependentUpon>
     </Compile>
@@ -60,9 +57,6 @@
     <EmbeddedResource Update="Views\DcComicsViews\DcHomePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\DcComicsViews\DcMoviesPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
     <EmbeddedResource Update="Views\DcComicsViews\DcSeriesPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -76,9 +70,6 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\MarvelViews\MarvelHomePage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Views\MarvelViews\MarvelMoviesPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\MarvelViews\MarvelSeriesPage.xaml">
