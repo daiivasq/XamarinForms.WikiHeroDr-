@@ -8,8 +8,8 @@
              x:Class="WikiHero.Views.MarvelViews.MarvelCharactersPage"
              BackgroundColor="#7b0000">
     <ContentPage.Content>
-        <StackLayout Padding="10,0,10,0">
-            <Frame CornerRadius="20" Opacity="0.8" HasShadow="True" >
+        <StackLayout Padding="10,0,10,10">
+            <Frame CornerRadius="20" HeightRequest="20" Opacity="0.5" HasShadow="True" >
                 <SearchBar HeightRequest="50"/>
             </Frame>
             <controlsviews:ControlListView ItemsSource="{Binding Characters}"/>

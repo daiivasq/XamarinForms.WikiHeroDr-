@@ -22,11 +22,8 @@ namespace WikiHero
         protected override void OnInitialized()
         {
             InitializeComponent();
-<<<<<<< HEAD
             NavigationService.NavigateAsync(new Uri($"{ConfigPageUri.MarvelVsDcComicsPage}"));
-=======
-            NavigationService.NavigateAsync(new Uri(ConfigPageUri.MarvelCharactersPage));
->>>>>>> bfe65f8e64adc8acc8d8a6947ea7b550d6e6e78b
+            
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
@@ -38,7 +35,7 @@ namespace WikiHero
             containerRegistry.RegisterForNavigation<MarvelCharactersPage, MarvelCharacterPageViewModel>();
             containerRegistry.RegisterForNavigation<MarvelComicsPage, MarvelComicsPageViewModel>();
             containerRegistry.RegisterForNavigation<MarvelHomePage, MarvelHomePageViewModel>();
-            containerRegistry.RegisterForNavigation<MarvelSeriesPage, MarvelSeriesPageViewModel>();
+            containerRegistry.RegisterForNavigation<MarvelSeriesPage, MarvelCharacterPageViewModel>();
             containerRegistry.RegisterForNavigation<MarvelMoviesPage, MarvelMoviesPageViewModel>();
             containerRegistry.RegisterForNavigation<TappedMarvelPage, TappedMarvelPageViewModel>();
             //RegisterDC
