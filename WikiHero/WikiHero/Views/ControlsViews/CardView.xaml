@@ -16,7 +16,7 @@
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="30" />
                 </Grid.RowDefinitions>
                 <Image Grid.Column="0"
                        Grid.Row="0"
@@ -26,12 +26,16 @@
                        Grid.RowSpan="2"
                        Grid.ColumnSpan="2"
                        Source="{Binding Image.MediumUrl}"/>
-                <Label Grid.Column="1" 
+                <Frame Grid.Column="1" 
+                       Padding="0"
                        Grid.Row="1"
-                       TextColor="White"
-                       BackgroundColor="#7b0000"
+                       CornerRadius="5"
+                       BackgroundColor="#7b0000">
+                    <Label TextColor="White"
+
                        Text="{Binding Name}"
-                       FontSize="25"/>
+                       FontSize="18"/>
+                </Frame>
             </Grid>
         </pancakeview:PancakeView>
   </ContentView.Content>
