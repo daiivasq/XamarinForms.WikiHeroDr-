@@ -7,7 +7,7 @@ using WikiHero.Services;
 
 namespace WikiHero.ViewModels.MarvelViewModels
 {
-    public class MarvelSeriesPageViewModel : MoviePageViewModel
+    public class MarvelSeriesPageViewModel : SeriePageViewModel
     {
 
         private const string MarvelUniverse = "MarvelComic";

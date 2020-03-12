@@ -59,7 +59,7 @@ namespace WikiHero.Models
         public string SiteDetailUrl { get; set; }
 
         [JsonProperty("studios")]
-        public IList<Studio> Studios { get; set; }
+        public List<Studio> Studios { get; set; }
 
         [JsonProperty("total_revenue")]
         public string TotalRevenue { get; set; }
