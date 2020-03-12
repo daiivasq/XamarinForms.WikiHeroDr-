@@ -5,7 +5,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:pancakeview="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              mc:Ignorable="d"
-             x:Class="WikiHero.Views.ControlsViews.ColletionCardView">
+             x:Class="WikiHero.Views.ControlsViews.ColletionCardView"
+             x:Name="this">
     <ContentView.Content>
         <CollectionView ItemsSource="{Binding ItemsSource}"
                       x:Name="publisherList"
@@ -20,14 +21,13 @@
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <pancakeview:PancakeView CornerRadius="10"
-                                             BackgroundColor="#7b0000"
+                                             BackgroundColor="White"
                                              Padding="10">
                         <StackLayout>
                             <Image Source="{Binding Image.MediumUrl}"
                                    HeightRequest="200" WidthRequest="150"
                                    Aspect="AspectFill"/>
-                            <Label Text="{Binding Name}"
-                                   TextColor="White"/>
+                            <Label Text="{Binding Name}"/>
                         </StackLayout>
                     </pancakeview:PancakeView>
                 </DataTemplate>

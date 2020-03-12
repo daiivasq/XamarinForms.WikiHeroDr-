@@ -18,6 +18,12 @@ namespace WikiHero.Views.ControlsViews
           typeof(IList),
           typeof(ColletionCardView),
           propertyChanged: ColletionViewChanged);
+        public static readonly BindableProperty ColorProperty = BindableProperty.Create(nameof(ColorFrame), typeof(Color), typeof(CardView));
+        public Color ColorFrame
+        {
+            get => (Color)GetValue(ColorProperty);
+            set => SetValue(ColorProperty, value);
+        }
         public IList ItemsSource
         {
             get => (IList)GetValue(ItemsSourceProperty);
@@ -29,7 +35,7 @@ namespace WikiHero.Views.ControlsViews
             var items = (IList)newValue;
             control.publisherList.ItemsSource = items;
         }
-            public ColletionCardView()
+        public ColletionCardView()
         {
             InitializeComponent();
         }

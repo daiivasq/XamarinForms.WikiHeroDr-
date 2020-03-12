@@ -10,10 +10,12 @@ namespace WikiHero.ViewModels.MarvelViewModels
     public class MarvelSeriesPageViewModel : SeriePageViewModel
     {
 
-        private const string MarvelUniverse = "MarvelComic";
-        public MarvelSeriesPageViewModel(INavigationService navigationService, IPageDialogService dialogService, ApiComicsVine apiComicsVine) : base(navigationService, dialogService, apiComicsVine, MarvelUniverse, 100)
+        private const string MarvelUniverse = "Marvel";
+        private const string Disney = "Disney";
+        private const int Offset = 0;
+        public MarvelSeriesPageViewModel(INavigationService navigationService, IPageDialogService dialogService, ApiComicsVine apiComicsVine) : base(navigationService, dialogService, apiComicsVine, MarvelUniverse, Disney, Offset)
         {
-
+            LoadSeries(Offset);
         }
     }
 }

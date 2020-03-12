@@ -22,12 +22,11 @@
 
 
                 </PrincipalPancake:PancakeView>
-                <PrincipalPancake:PancakeView CornerRadius="500,0,0,0" AbsoluteLayout.LayoutBounds="0,350" >
+                <PrincipalPancake:PancakeView CornerRadius="500,0,0,0" AbsoluteLayout.LayoutBounds="0,350">
                     <Image Source="DcComics.jpg" Grid.Row="2" HeightRequest="480"  Aspect="AspectFill" />
                     <PrincipalPancake:PancakeView.GestureRecognizers >
                         <TapGestureRecognizer  NumberOfTapsRequired="1" Command="{Binding DcUniverseCommand}"/>
                     </PrincipalPancake:PancakeView.GestureRecognizers>
-
 
                 </PrincipalPancake:PancakeView>
                 <Image Source="VS3.png" AbsoluteLayout.LayoutBounds="50,220,300,300"/>

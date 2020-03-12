@@ -5,8 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:controlsviews="clr-namespace:WikiHero.Views.ControlsViews"
              mc:Ignorable="d"
-             x:Class="WikiHero.Views.MarvelViews.MarvelCharactersPage"
-             BackgroundColor="#7b0000">
+             x:Class="WikiHero.Views.MarvelViews.MarvelCharactersPage">
     <ContentPage.Content>
         <StackLayout Padding="10,0,10,10">
             <Frame CornerRadius="20" HeightRequest="20" Opacity="0.5" HasShadow="True" >

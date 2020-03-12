@@ -7,6 +7,12 @@
              mc:Ignorable="d"
              x:Class="WikiHero.App">
     <Application.Resources>
-
+        <ResourceDictionary>
+            <Color x:Key="MarvelPrincipalColor">#ED1D24</Color>
+            <Color x:Key="DCPrincipalColor">#0476F2</Color>
+            <Style TargetType="Label">
+                <Setter Property="TextColor" Value="Black"/>
+            </Style>
+        </ResourceDictionary>
     </Application.Resources>
 </prims:PrismApplication>

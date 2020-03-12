@@ -12,7 +12,7 @@
                 <SearchBar HeightRequest="50" SearchCommand="{Binding SearhCommand}"
                            SearchCommandParameter="{Binding .}"/>
             </Frame>
-            <controlsviews:ColletionCardView ItemsSource="{Binding Comics}"/>
+            <controlsviews:ColletionCardView ItemsSource="{Binding Comics}" ColorFrame="{StaticResource DCPrincipalColor}"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

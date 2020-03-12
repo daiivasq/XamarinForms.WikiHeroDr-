@@ -7,12 +7,14 @@ using WikiHero.Services;
 
 namespace WikiHero.ViewModels.DCViewModels
 {
-    public class DcSeriesPageViewModel : ComicPageViewModel
+    public class DcSeriesPageViewModel : SeriePageViewModel
     {
-        private const string DcUniverse = "DcComic";
-        public DcSeriesPageViewModel(INavigationService navigationService, IPageDialogService dialogService, ApiComicsVine apiComicsVine) : base(navigationService, dialogService, apiComicsVine, DcUniverse, 100)
+        private const string DcUniverse = "DC";
+        private const string WarnerBrothers = "Warner Brothers";
+        private const int Offset = 0;
+        public DcSeriesPageViewModel(INavigationService navigationService, IPageDialogService dialogService, ApiComicsVine apiComicsVine) : base(navigationService, dialogService, apiComicsVine, DcUniverse, WarnerBrothers, Offset)
         {
-
+            LoadSeries(Offset);
         }
     }
 }

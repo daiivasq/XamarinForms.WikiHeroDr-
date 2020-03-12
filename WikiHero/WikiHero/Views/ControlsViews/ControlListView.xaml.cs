@@ -23,6 +23,12 @@ namespace WikiHero.Views.ControlsViews
             get => (IList)GetValue(ItemsSourceProperty);
             set => SetValue(ItemsSourceProperty, value);
         }
+        public static readonly BindableProperty ColorProperty = BindableProperty.Create(nameof(ColorFrame), typeof(Color), typeof(CardView));
+        public Color ColorFrame
+        {
+            get => (Color)GetValue(ColorProperty);
+            set => SetValue(ColorProperty, value);
+        }
         private static void ColletionViewChanged(BindableObject bindable, object oldValue, object newValue)
         {
             if (!(bindable is ControlListView control)) return;

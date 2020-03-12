@@ -3,34 +3,35 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-            xmlns:local="clr-namespace:WikiHero.Views.DcComicsViews"
             mc:Ignorable="d"
-             x:Class="WikiHero.Views.DcComicsViews.TappedDcComicsPage">
+             x:Class="WikiHero.Views.DcComicsViews.TappedDcComicsPage"
+             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+            xmlns:local="clr-namespace:WikiHero.Views.DcComicsViews"
+            android:TabbedPage.ToolbarPlacement="Bottom"
+            BarBackgroundColor="{StaticResource DCPrincipalColor}"
+            BarTextColor="White"
+           >
+    <NavigationPage Title="Home" IconImageSource="dc.png" BarBackgroundColor="{StaticResource DCPrincipalColor}">
+        <x:Arguments>
+            <local:DcHomePage Title="Home"/>
+        </x:Arguments>
+    </NavigationPage>
 
+    <NavigationPage Title="Series" IconImageSource="ic_action_tv.png" BarBackgroundColor="{StaticResource DCPrincipalColor}">
+        <x:Arguments>
+            <local:DcSeriesPage Title="Series"/>
+        </x:Arguments>
+    </NavigationPage>
 
-    <NavigationPage Title="HomeDc">
+    <NavigationPage Title="Comics" IconImageSource="comic.png" BarBackgroundColor="{StaticResource DCPrincipalColor}">
         <x:Arguments>
-            <local:DcHomePage/>
+            <local:DcComicsPage Title="Comics"/>
         </x:Arguments>
     </NavigationPage>
-    <NavigationPage Title="MoviesDc">
+
+    <NavigationPage Title="Characters" IconImageSource="DcCharacters.png" BarBackgroundColor="{StaticResource DCPrincipalColor}">
         <x:Arguments>
-            <local:DcMoviesPage/>
-        </x:Arguments>
-    </NavigationPage>
-    <NavigationPage Title="SeriesDc">
-        <x:Arguments>
-            <local:DcSeriesPage/>
-        </x:Arguments>
-    </NavigationPage>
-    <NavigationPage Title="ComicsDc">
-        <x:Arguments>
-            <local:DcComicsPage/>
-        </x:Arguments>
-    </NavigationPage>
-    <NavigationPage Title="CharactersDc">
-        <x:Arguments>
-            <local:DcCharactersPage/>
+            <local:DcCharactersPage Title="Characters"/>
         </x:Arguments>
     </NavigationPage>
 </TabbedPage>

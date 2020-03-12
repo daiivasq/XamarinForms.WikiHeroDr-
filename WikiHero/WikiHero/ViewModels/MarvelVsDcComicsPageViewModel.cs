@@ -16,15 +16,17 @@ namespace WikiHero.ViewModels
         public DelegateCommand MarvelCommand { get; set; }
         public MarvelVsDcComicsPageViewModel(INavigationService navigationService, IPageDialogService dialogService, ApiComicsVine apiComicsVine) :base(navigationService, dialogService, apiComicsVine)
         {
-            DcUniverseCommand = new DelegateCommand(async () => 
-            {
-                await navigationService.NavigateAsync(new Uri($"{ConfigPageUri.TappedDcComicsPage}",UriKind.Absolute));
-             });
-            MarvelCommand = new DelegateCommand(async () =>
-            {
-                await navigationService.NavigateAsync(new Uri($"{ConfigPageUri.TappedMarvelPage}",UriKind.Absolute));
-            });
 
+                DcUniverseCommand = new DelegateCommand(async () =>
+                {
+                    await navigationService.NavigateAsync(new Uri($"{ConfigPageUri.TappedDcComicsPage}", UriKind.Relative));
+                });
+                MarvelCommand = new DelegateCommand(async () =>
+                {
+                    await navigationService.NavigateAsync(new Uri($"{ConfigPageUri.TappedMarvelPage}", UriKind.Relative));
+                });
+       
+          
         }
-}
+    }
 }

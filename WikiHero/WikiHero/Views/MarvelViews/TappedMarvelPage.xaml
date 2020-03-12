@@ -5,31 +5,30 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
             xmlns:local="clr-namespace:WikiHero.Views.MarvelViews"
             mc:Ignorable="d"
-             x:Class="WikiHero.Views.MarvelViews.TappedMarvelPage">
-
-    <NavigationPage Title="HomeMarvel">
+             x:Class="WikiHero.Views.MarvelViews.TappedMarvelPage"
+              xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+              android:TabbedPage.ToolbarPlacement="Bottom"
+            BarBackgroundColor="{StaticResource MarvelPrincipalColor}"
+            BarTextColor="White"
+             >
+    <NavigationPage Title="Home" IconImageSource="Homemarvel.png" BarBackgroundColor="{StaticResource MarvelPrincipalColor}">
         <x:Arguments>
-            <local:MarvelHomePage/>
+            <local:MarvelHomePage Title="Home"/>
         </x:Arguments>
     </NavigationPage>
-    <NavigationPage Title="MoviesMarvel">
+    <NavigationPage Title="Series" IconImageSource="ic_action_tv.png" BarBackgroundColor="{StaticResource MarvelPrincipalColor}">
         <x:Arguments>
-            <local:MarvelMoviesPage/>
+            <local:MarvelSeriesPage Title="Series"/>
         </x:Arguments>
     </NavigationPage>
-    <NavigationPage Title="SeriesMarvel">
+    <NavigationPage Title="Comics" IconImageSource="comic.png" BarBackgroundColor="{StaticResource MarvelPrincipalColor}">
         <x:Arguments>
-            <local:MarvelSeriesPage/>
+            <local:MarvelComicsPage Title="Comics"/>
         </x:Arguments>
     </NavigationPage>
-    <NavigationPage Title="ComicsMarvel">
+    <NavigationPage Title="Characters" IconImageSource="MarvelCharacter.png" BarBackgroundColor="{StaticResource MarvelPrincipalColor}">
         <x:Arguments>
-            <local:MarvelComicsPage/>
-        </x:Arguments>
-    </NavigationPage>
-    <NavigationPage Title="CharactersMarvel">
-        <x:Arguments>
-            <local:MarvelCharactersPage/>
+            <local:MarvelCharactersPage Title="Characters"/>
         </x:Arguments>
     </NavigationPage>
 </TabbedPage>

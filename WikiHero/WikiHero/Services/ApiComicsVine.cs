@@ -32,18 +32,20 @@ namespace WikiHero.Services
             return comics.ToList();
         }
 
-        public async Task<ResultComics> GetAllComics(int offset)
+        public async Task<List<Volume>> GetAllVolumes(int offset)
         {
             var getRequest = RestService.For<IApiComicsVine>(Config.UrlApiComicsVine);
-            var comics = await getRequest.GetAllComics(Config.Apikey,offset);
-            return comics;
+            var volumes = await getRequest.GetAllVolumes(Config.Apikey,offset);
+            var notNull = from item in volumes.Volumes where item.Publisher != null select item;
+            return notNull.ToList();;
         }
         
-        public async Task<ResultSeries> GetAllSeries(int offset)
+        public async Task<List<Serie>> GetAllSeries(int offset)
         {
             var getRequest = RestService.For<IApiComicsVine>(Config.UrlApiComicsVine);
             var series = await getRequest.GetAllSeries(Config.Apikey,offset);
-            return series;
+            var notNull = from item in series.Series where item.Publisher != null select item;
+            return notNull.ToList();
         }
     }
 }

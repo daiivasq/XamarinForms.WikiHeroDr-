@@ -12,6 +12,7 @@ namespace WikiHero.Views.ControlsViews
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CardView : ContentView
     {
+        
         public CardView()
         {
             InitializeComponent();

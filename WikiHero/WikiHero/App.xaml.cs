@@ -22,7 +22,7 @@ namespace WikiHero
         protected override void OnInitialized()
         {
             InitializeComponent();
-            NavigationService.NavigateAsync(new Uri($"{ConfigPageUri.MarvelVsDcComicsPage}"));
+            NavigationService.NavigateAsync(new Uri($"{ConfigPageUri.MarvelVsDcComicsPage}",UriKind.Absolute));
             
         }
 
@@ -33,14 +33,14 @@ namespace WikiHero
             containerRegistry.RegisterForNavigation<NavigationPage>();
             //RegisterMarvel
             containerRegistry.RegisterForNavigation<MarvelCharactersPage, MarvelCharacterPageViewModel>();
-            containerRegistry.RegisterForNavigation<MarvelComicsPage, MarvelComicsPageViewModel>();
+            containerRegistry.RegisterForNavigation<MarvelComicsPage, MarvelVolumePageViewModel>();
             containerRegistry.RegisterForNavigation<MarvelHomePage, MarvelHomePageViewModel>();
-            containerRegistry.RegisterForNavigation<MarvelSeriesPage, MarvelCharacterPageViewModel>();
+            containerRegistry.RegisterForNavigation<MarvelSeriesPage, MarvelSeriesPageViewModel>();
             containerRegistry.RegisterForNavigation<MarvelMoviesPage, MarvelMoviesPageViewModel>();
             containerRegistry.RegisterForNavigation<TappedMarvelPage, TappedMarvelPageViewModel>();
             //RegisterDC
             containerRegistry.RegisterForNavigation<DcCharactersPage, DCCharactersPageViewModel>();
-            containerRegistry.RegisterForNavigation<DcComicsPage, DcComicsPageViewModel>();
+            containerRegistry.RegisterForNavigation<DcComicsPage, DcVolumePageViewModel>();
             containerRegistry.RegisterForNavigation<DcHomePage, DcHomePageViewModel>();
             containerRegistry.RegisterForNavigation<DcSeriesPage, DcSeriesPageViewModel>();
             containerRegistry.RegisterForNavigation<DcMoviesPage, DcMoviesPageViewModel>();

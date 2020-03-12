@@ -13,18 +13,23 @@ using WikiHero.Services;
 
 namespace WikiHero.ViewModels
 {
-    public class ComicPageViewModel : BaseViewModel
+    public class VolumePageViewModel : BaseViewModel
     {
-        public ObservableCollection<Comic> Comics { get; set; } = new ObservableCollection<Comic>();
+        public ObservableCollection<Volume> Comics { get; set; } = new ObservableCollection<Volume>();
         public int ItemTreshold { get; set; }
         public bool IsBusy { get; set; }
-        public string WriterName { get; set; }
+        public string PublisherPrincipal { get; set; }
+        public string PublisherSecond{ get; set; }
+        public string PublisherThird { get; set; }
+
         public DelegateCommand ItemTresholdReachedCommand { get; set; }
 
 
-        public ComicPageViewModel(INavigationService navigationService, IPageDialogService dialogService, ApiComicsVine apiComicsVine, string writerName, int offeset) : base(navigationService, dialogService, apiComicsVine)
+        public VolumePageViewModel(INavigationService navigationService, IPageDialogService dialogService, ApiComicsVine apiComicsVine, string publisherPrincipal, string publisherSecond, string publisherThird, int offeset) : base(navigationService, dialogService, apiComicsVine)
         {
-            this.WriterName = writerName;
+            this.PublisherPrincipal =publisherPrincipal;
+            this.PublisherSecond = publisherSecond;
+            this.PublisherThird = publisherThird;
             ItemTresholdReachedCommand = new DelegateCommand(async () =>
             {
                 offeset = offeset + 100;
@@ -42,9 +47,10 @@ namespace WikiHero.ViewModels
 
             try
             {
-                var items = await apiComicsVine.GetAllComics(offset);
-                //var marvel = items.Where(e => e.Publisher.Name.Contains(PublisherName));
-                foreach (var item in items.Results)
+                var items = await apiComicsVine.GetAllVolumes(offset);
+                var volumes = items.Where(e => e.Publisher.Name.Contains(PublisherPrincipal) 
+                || e.Publisher.Name.Contains(PublisherSecond) || e.Publisher.Name.Contains(PublisherThird));
+                foreach (var item in volumes)
                 {
                     Comics.Add(item);
                 }
@@ -67,14 +73,15 @@ namespace WikiHero.ViewModels
         {
             try
             {
-                var list = await apiComicsVine.GetAllComics(offset);
-                //var comics = list.Where(e => e.Publisher.Name.Contains(PublisherName));
-                Comics = new ObservableCollection<Comic>(list.Results);
+
+                var list = await apiComicsVine.GetAllVolumes(offset);
+                var comics = list.Where(e => e.Publisher.Name.Contains(PublisherPrincipal) || e.Publisher.Name.Contains(PublisherSecond) || e.Publisher.Name.Contains(PublisherThird));
+                Comics = new ObservableCollection<Volume>(comics);
             }
             catch (Exception ex)
             {
 
-                await dialogService.DisplayAlertAsync("Error", $"{ex.Message}", "Ok");
+                await dialogService.DisplayAlertAsync("Volume", $"{ex.Message}", "Ok");
 
             }
 

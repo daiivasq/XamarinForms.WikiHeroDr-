@@ -18,16 +18,18 @@ namespace WikiHero.ViewModels
         public ObservableCollection<Serie> Series { get; set; } = new ObservableCollection<Serie>();
         public int ItemTreshold { get; set; }
         public bool IsBusy { get; set; }
-        public string StudioName { get; set; }
+        protected string ExtraStudioName { get; set; }
+        protected string StudioName { get; set; }
         public DelegateCommand ItemTresholdReachedCommand { get; set; }
 
 
-        public SeriePageViewModel(INavigationService navigationService, IPageDialogService dialogService, ApiComicsVine apiComicsVine, string studioName, int offeset) : base(navigationService, dialogService, apiComicsVine)
+        public SeriePageViewModel(INavigationService navigationService, IPageDialogService dialogService, ApiComicsVine apiComicsVine, string studioName, string ExtrastudioName, int offeset) : base(navigationService, dialogService, apiComicsVine)
         {
+            this.ExtraStudioName = ExtrastudioName;
             this.StudioName = studioName;
             ItemTresholdReachedCommand = new DelegateCommand(async () =>
             {
-                offeset = offeset + 100;
+                offeset += 100;
                 await ScrollLoadSeries(offeset);
             });
         }
@@ -42,8 +44,8 @@ namespace WikiHero.ViewModels
             try
             {
                 var items = await apiComicsVine.GetAllSeries(offset);
-                //var marvel = items.Where(e => e.Publisher.Name.Contains(PublisherName));
-                foreach (var item in items.Series)
+                var series = items.Where(e => e.Publisher.Name.Contains(StudioName) || e.Publisher.Name.Contains(ExtraStudioName));
+                foreach (var item in series)
                 {
                     Series.Add(item);
                 }
@@ -67,12 +69,13 @@ namespace WikiHero.ViewModels
             try
             {
                 var list = await apiComicsVine.GetAllSeries(offset);
-                Series = new ObservableCollection<Serie>(list.Series);
+                var series = list.Where(e => e.Publisher.Name.Contains(StudioName) ||e.Publisher.Name.Contains(ExtraStudioName));
+                Series = new ObservableCollection<Serie>(series);
             }
             catch (Exception ex)
             {
 
-                await dialogService.DisplayAlertAsync("Error", $"{ex.Message}", "Ok");
+                await dialogService.DisplayAlertAsync("Serie", $"{ex.Message}", "Ok");
 
             }
 
