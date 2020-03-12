@@ -22,9 +22,12 @@ namespace WikiHero.Helpers
         public const string DcComicsSeriesPage = "/DcSeriesPage";
         public const string MarvelSeriesPage = "/MarvelSeriesPage";
 
+<<<<<<< HEAD
         public const string DcComicsMoviesPage = "/DcMoviesPage";
         public const string MarvelMoviesPage = "/MarvelMoviesPage";
 
+=======
+>>>>>>> ac9cfc1bceee1d03ef676228543d69a29a14e5b5
         public const string TappedDcComicsPage = "/TappedDcComicsPage";
         public const string TappedMarvelPage = "/TappedMarvelPage";
 

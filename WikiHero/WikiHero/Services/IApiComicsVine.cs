@@ -12,10 +12,13 @@ namespace WikiHero.Services
         [Get("/api/characters?api_key={api_key}&format=json&limit=100&offset={offset}&filter=date_last_updated: 2018-12-18 10:49:41|2020-03-06 13:15:56")]
         Task<ResultCharacter> GetAllCharacter(string api_key, int offset);
 
+<<<<<<< HEAD
 
         [Get("/api/movies?api_key={api_key}&format=json&format=json&limit=100")]
         Task<ResultMovies> GetFindMovies(string api_key, string name);
 
+=======
+>>>>>>> ac9cfc1bceee1d03ef676228543d69a29a14e5b5
         [Get("/api/issues?api_key={api_key}&format=json&offset={offset}&filter=date_last_updated : 2018-09-02 17:47:38|2020-03-10 11:00:00&sort=date_last_updated : desc")]
         Task<ResultComics> GetAllComics(string api_key, int offset);
         

@@ -4,6 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
             mc:Ignorable="d"
+<<<<<<< HEAD
              x:Class="WikiHero.Views.DcComicsViews.TappedDcComicsPage"
              xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
             xmlns:local="clr-namespace:WikiHero.Views.DcComicsViews"
@@ -18,6 +19,17 @@
     </NavigationPage>
 
     <NavigationPage Title="Series" IconImageSource="ic_action_tv.png" BarBackgroundColor="{StaticResource DCPrincipalColor}">
+=======
+             x:Class="WikiHero.Views.DcComicsViews.TappedDcComicsPage">
+
+
+    <NavigationPage Title="HomeDc">
+        <x:Arguments>
+            <local:DcHomePage/>
+        </x:Arguments>
+    </NavigationPage>
+    <NavigationPage Title="SeriesDc">
+>>>>>>> ac9cfc1bceee1d03ef676228543d69a29a14e5b5
         <x:Arguments>
             <local:DcSeriesPage Title="Series"/>
         </x:Arguments>
