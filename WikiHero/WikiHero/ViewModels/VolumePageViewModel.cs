@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using WikiHero.Models;
 using WikiHero.Services;
+using Xamarin.Essentials;
 
 namespace WikiHero.ViewModels
 {
@@ -44,22 +45,29 @@ namespace WikiHero.ViewModels
                 return;
 
             IsBusy = true;
-
+           
             try
-            {
+                {
+                if (Connectivity.NetworkAccess == NetworkAccess.Internet)
+                {
+               
                 var items = await apiComicsVine.GetAllVolumes(offset);
-                var volumes = items.Where(e => e.Publisher.Name.Contains(PublisherPrincipal) 
-                || e.Publisher.Name.Contains(PublisherSecond) || e.Publisher.Name.Contains(PublisherThird));
-                foreach (var item in volumes)
-                {
-                    Comics.Add(item);
+                    var volumes = items.Where(e => e.Publisher.Name.Contains(PublisherPrincipal)
+                    || e.Publisher.Name.Contains(PublisherSecond) || e.Publisher.Name.Contains(PublisherThird));
+                    foreach (var item in volumes)
+                    {
+                        Comics.Add(item);
+                    }
+                    if (offset == 1000)
+                    {
+                        ItemTreshold = -1;
+                        return;
+                    }
                 }
-                if (offset == 1000)
-                {
-                    ItemTreshold = -1;
-                    return;
-                }
+                else
+                    await dialogService.DisplayAlertAsync("Connection error ", Connectivity.NetworkAccess.ToString(), "Ok");
             }
+
             catch (Exception ex)
             {
                 await dialogService.DisplayAlertAsync("Error", $"{ex.Message}", "Ok");
@@ -68,12 +76,14 @@ namespace WikiHero.ViewModels
             {
                 IsBusy = false;
             }
+
         }
         protected async Task LoadComics(int offset)
         {
+            if (Connectivity.NetworkAccess == NetworkAccess.Internet)
+            {
             try
             {
-
                 var list = await apiComicsVine.GetAllVolumes(offset);
                 var comics = list.Where(e => e.Publisher.Name.Contains(PublisherPrincipal) || e.Publisher.Name.Contains(PublisherSecond) || e.Publisher.Name.Contains(PublisherThird));
                 Comics = new ObservableCollection<Volume>(comics);
@@ -84,7 +94,9 @@ namespace WikiHero.ViewModels
                 await dialogService.DisplayAlertAsync("Volume", $"{ex.Message}", "Ok");
 
             }
-
+            }
+            else
+                await dialogService.DisplayAlertAsync("Connection error ", Connectivity.NetworkAccess.ToString(), "Ok");
         }
     }
 }

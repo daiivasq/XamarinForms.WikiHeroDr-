@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using WikiHero.Models;
 using WikiHero.Services;
+using Xamarin.Essentials;
 
 namespace WikiHero.ViewModels
 {
@@ -40,21 +41,25 @@ namespace WikiHero.ViewModels
                 return;
 
             IsBusy = true;
-
-            try
+            if (Connectivity.NetworkAccess == NetworkAccess.Internet)
             {
-                var items = await apiComicsVine.GetAllSeries(offset);
-                var series = items.Where(e => e.Publisher.Name.Contains(StudioName) || e.Publisher.Name.Contains(ExtraStudioName));
-                foreach (var item in series)
+                try
                 {
-                    Series.Add(item);
+
+                    var items = await apiComicsVine.GetAllSeries(offset);
+                    var series = items.Where(e => e.Publisher.Name.Contains(StudioName) || e.Publisher.Name.Contains(ExtraStudioName));
+                    foreach (var item in series)
+                    {
+                        Series.Add(item);
+                    }
+                    if (offset == 1000)
+                    {
+                        ItemTreshold = -1;
+                        return;
+                    }
+                } else
+                        await dialogService.DisplayAlertAsync("Connection error ", Connectivity.NetworkAccess.ToString(), "Ok");
                 }
-                if (offset == 1000)
-                {
-                    ItemTreshold = -1;
-                    return;
-                }
-            }
             catch (Exception ex)
             {
                 await dialogService.DisplayAlertAsync("Error", $"{ex.Message}", "Ok");
@@ -66,18 +71,24 @@ namespace WikiHero.ViewModels
         }
         protected async Task LoadSeries(int offset)
         {
-            try
+            if (Connectivity.NetworkAccess == NetworkAccess.Internet)
             {
-                var list = await apiComicsVine.GetAllSeries(offset);
-                var series = list.Where(e => e.Publisher.Name.Contains(StudioName) ||e.Publisher.Name.Contains(ExtraStudioName));
-                Series = new ObservableCollection<Serie>(series);
-            }
-            catch (Exception ex)
-            {
+                try
+                {
+                    var list = await apiComicsVine.GetAllSeries(offset);
+                    var series = list.Where(e => e.Publisher.Name.Contains(StudioName) || e.Publisher.Name.Contains(ExtraStudioName));
+                    Series = new ObservableCollection<Serie>(series);
+                }
+                catch (Exception ex)
+                {
 
-                await dialogService.DisplayAlertAsync("Serie", $"{ex.Message}", "Ok");
+                    await dialogService.DisplayAlertAsync("Serie", $"{ex.Message}", "Ok");
 
+                }
             }
+            else
+                await dialogService.DisplayAlertAsync("Connection error ", Connectivity.NetworkAccess.ToString(), "Ok");
+            
 
         }
     

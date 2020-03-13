@@ -40,7 +40,9 @@ namespace WikiHero.ViewModels
 
             try
             {
-                var items = await apiComicsVine.GetAllCharacter(offset);
+                if (Connectivity.NetworkAccess == NetworkAccess.Internet)
+                {
+                    var items = await apiComicsVine.GetAllCharacter(offset);
                 var marvel = items.Where(e => e.Publisher.Name.Contains(PublisherName));
                 foreach (var item in marvel)
                 {
@@ -52,6 +54,9 @@ namespace WikiHero.ViewModels
                     return;
                 }
             }
+            }
+            else
+                await dialogService.DisplayAlertAsync("Connection error ", Connectivity.NetworkAccess.ToString(), "Ok");
             catch (Exception ex)
             {
                 await dialogService.DisplayAlertAsync("Error", $"{ex.Message}", "Ok");
