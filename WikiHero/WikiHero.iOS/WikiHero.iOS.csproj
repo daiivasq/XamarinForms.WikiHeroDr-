@@ -147,4 +147,37 @@
       <Name>WikiHero</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\BackgroundMarvelAndDc.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\comic.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\dc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\DcCharacters.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\DcComics.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Homemarvel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_action_tv.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Marvel.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\MarvelCharacter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\versusPrincipal.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\VS3.png" />
+  </ItemGroup>
 </Project>
