@@ -25,5 +25,6 @@ namespace WikiHero.Models.CharacterStatModel
 
         [JsonProperty("combat")]
         public int Combat { get; set; }
+        public int Average { get=> (Speed+Intelligence+Strength+Durability+Power+Combat)/6; }
     }
 }

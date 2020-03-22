@@ -43,7 +43,7 @@ namespace WikiHero.Services
 
         public async Task<List<Volume>> GetAllVolumes(int offset,string PublisherPrincipal,string PublisherSecond,string PublisherThird)
         {
-            if (!NetworkAvalible())
+            if (NetworkAvalible()==false)
             {
                 await Task.Yield();
                 return Barrel.Current.Get<List<Volume>>(key: $"{nameof(GetAllVolumes)}/{PublisherPrincipal}");

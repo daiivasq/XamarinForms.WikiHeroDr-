@@ -17,20 +17,34 @@ namespace WikiHero.ViewModels
         protected ApiStatsCharacters apiStatsCharacters;
         public ObservableCollection<CharacterStats> HeroesCharacters { get; set; }
         public ObservableCollection<CharacterStats> VillainCharacters { get; set; }
-        private CharacterStats selectCharacters;
+        private CharacterStats selectHeroes;
 
-        public CharacterStats SelectCharacters
+        public CharacterStats SelectHeroes
         {
-            get { return selectCharacters; }
+            get { return selectHeroes; }
             set 
             {
-                selectCharacters = value;
-                if (selectCharacters!=null)
+                selectHeroes = value;
+                if (selectHeroes!=null)
                 {
 
                 }
             }
         }
+        private CharacterStats selectVillain;
+
+        public CharacterStats SelectVillain
+        {
+            get { return selectVillain; }
+            set { 
+                selectVillain = value;
+                if (selectVillain != null)
+                {
+
+                }
+            }
+        }
+
 
         public CompareCharactersPageViewModel(INavigationService navigationService, IPageDialogService dialogService, ApiComicsVine apiComicsVine, ApiStatsCharacters apiStatsCharacters,string publisher) : base(navigationService, dialogService, apiComicsVine)
         {
@@ -41,7 +55,7 @@ namespace WikiHero.ViewModels
             });
             LoadListCommand.Execute();
         }
-        public async Task LoadCharacters(string publisher)
+        async Task LoadCharacters(string publisher)
         {
             const string bad = "bad";
             const string good = "good";

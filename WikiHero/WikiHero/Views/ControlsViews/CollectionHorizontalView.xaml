@@ -4,13 +4,18 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:pancakeview="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              mc:Ignorable="d"
-             x:Class="WikiHero.Views.ControlsViews.CollectionHorizontalView">
+             x:Class="WikiHero.Views.ControlsViews.CollectionHorizontalView"
+             x:Name="this">
   <ContentView.Content>
         <CollectionView  ItemsSource="{Binding ItemsSource}"
-                      x:Name="CharactersList">
+                      x:Name="CharactersList"
+                         SelectedItem="{Binding SelectItem}"
+                         SelectionMode="Single"
+                         BindingContext="{x:Reference this}">
             <CollectionView.ItemsLayout>
                 <LinearItemsLayout Orientation="Horizontal"
-                                   ItemSpacing="10"/>
+                                   ItemSpacing="10"
+                                   />
             </CollectionView.ItemsLayout>
             <CollectionView.ItemTemplate>
                 <DataTemplate>

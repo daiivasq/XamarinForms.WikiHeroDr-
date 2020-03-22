@@ -6,76 +6,106 @@
              xmlns:pancakeview="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              mc:Ignorable="d"
              x:Class="WikiHero.Views.ControlsViews.CardCharacterView"
-             
+             x:Name="this"
              >
   <ContentView.Content>
         <pancakeview:PancakeView HasShadow="True"
                                  CornerRadius="0,0,15,15"
-                                 Padding="10,10,10,10">
+                                 Padding="10,10,10,10"
+                                 BindingContext="{x:Reference this}">
             <Grid>
                 <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
                     <RowDefinition Height="1*"/>
                     <RowDefinition Height="20"/>
                     <RowDefinition Height="20"/>
                     <RowDefinition Height="20"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="40"/>
+                    <ColumnDefinition Width="20"/>
                 </Grid.ColumnDefinitions>
-                <Image Grid.Row="0"
+         
+                <Image Grid.RowSpan="2"
                        Grid.ColumnSpan="5"
-                       BackgroundColor="Red"/>
-                <Label Text="80"
-                       Grid.Row="1"
-                       Grid.Column="0"
-                       />
-                <Image Grid.Row="1"
-                       Grid.Column="1"
-                       BackgroundColor="Green"
-                       />
-                <Label Text="90"
+                       x:Name="ImageCharacters"
+                       Source="{Binding CharacterImage}"/>
+                <pancakeview:PancakeView Grid.Row="0"
+                                         Grid.ColumnSpan="2"
+                                         CornerRadius="0,0,0,20"
+                                         BackgroundColor="{StaticResource MarvelPrincipalColor}">
+                    <Label Text="{Binding Average}"
+                       FontSize="20"
+                         Margin="5,0,0,0"
+                         x:Name="LabelAverage"/>
+                </pancakeview:PancakeView>
+                <Label Text="{Binding Inteligent}"
                        Grid.Row="2"
                        Grid.Column="0"
+                        x:Name="LabelInteligent"
                        />
                 <Image Grid.Row="2"
                        Grid.Column="1"
-                       BackgroundColor="Yellow"
+                       Source="{Binding InteligenceImages}"
+                        x:Name="ImageItelligence"
                        />
-                <Label Text="11"
+                <Label Text="{Binding Power}"
                        Grid.Row="3"
                        Grid.Column="0"
+                        x:Name="LabelPower"
                        />
                 <Image Grid.Row="3"
                        Grid.Column="1"
-                       BackgroundColor="Black"
+                       Source="{Binding PowerImages}"
+                        x:Name="ImagePower"
+                       />
+                <Label Text="{Binding Strength}"
+                       Grid.Row="4"
+                       Grid.Column="0"
+                       
+                       x:Name="LabelStrength"
+                       />
+                <Image Grid.Row="4"
+                       Source="{Binding StrengthImages}"
+                       Grid.Column="1"
+                       x:Name="ImageStrength"
                        />
                 <!-- rigth -->
-                <Label Text="80"
-                       Grid.Row="1"
-                       Grid.Column="2"
-                       />
-                <Image Grid.Row="1"
-                       Grid.Column="3"
-                       BackgroundColor="Black"
-                       />
-                <Label Text="80"
+                <Label Text="{Binding Combat}"
                        Grid.Row="2"
                        Grid.Column="2"
+                       x:Name="LabelCombat"
+                       HorizontalOptions="EndAndExpand"
                        />
                 <Image Grid.Row="2"
+                       Source="{Binding CombatImages}"
                        Grid.Column="3"
-                       BackgroundColor="Yellow"
+                       x:Name="ImageCombat"
                        />
-                <Label Text="80"
+                <Label Text="{Binding Durability}"
                        Grid.Row="3"
                        Grid.Column="2"
+                        HorizontalOptions="EndAndExpand"
+                       x:Name="LabelDurability"
                        />
                 <Image Grid.Row="3"
                        Grid.Column="3"
-                       BackgroundColor="Blue"
+                       Source="{Binding DurabilityImages}"
+                     x:Name="ImageDurability"
+                       />
+                <Label Text="{Binding Speed}"
+                       Grid.Row="4"
+                       Grid.Column="2"
+                       
+                        HorizontalOptions="EndAndExpand"
+                        x:Name="LabelSpeed"
+                       />
+                <Image Grid.Row="4"
+                       Source="{Binding SpeedImages}"
+                       Grid.Column="3"
+                       x:Name="ImageSpeed"
                        />
             </Grid>
         </pancakeview:PancakeView>
