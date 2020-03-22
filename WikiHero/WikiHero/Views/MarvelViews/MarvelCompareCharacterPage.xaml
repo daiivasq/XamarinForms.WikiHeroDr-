@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:controlsviews="clr-namespace:WikiHero.Views.ControlsViews"
+             xmlns:pancakeview="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             mc:Ignorable="d"
+             x:Class="WikiHero.Views.MarvelViews.MarvelCompareCharacterPage">
+    <ContentPage.Content>
+        <Grid RowSpacing="10" Padding="0,10,0,10">
+            <Grid.RowDefinitions >
+                <RowDefinition Height="165"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="165"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <controlsviews:CollectionHorizontalView ItemsSource="{Binding HeroesCharacters}"
+                                                    VerticalOptions="StartAndExpand"
+                                                    Grid.ColumnSpan="3"/>
+            <controlsviews:CardCharacterView Grid.Row="1"
+                Grid.Column="0" />
+            <Label Text="Vs"
+                   Grid.Row="1"
+                   FontSize="40"
+                   VerticalOptions="CenterAndExpand"
+                   HorizontalOptions="CenterAndExpand"
+                   Grid.Column="1"/>
+            <controlsviews:CardCharacterView Grid.Row="1"
+                Grid.Column="2"/>
+            <controlsviews:CollectionHorizontalView ItemsSource="{Binding HeroesCharacters}"
+                                                    VerticalOptions="EndAndExpand"
+                                                    Grid.Row="2"
+                                                     Grid.ColumnSpan="3"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

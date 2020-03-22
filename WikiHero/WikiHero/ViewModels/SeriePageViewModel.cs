@@ -41,14 +41,12 @@ namespace WikiHero.ViewModels
                 return;
 
             IsBusy = true;
-            if (Connectivity.NetworkAccess == NetworkAccess.Internet)
-            {
                 try
                 {
 
-                    var items = await apiComicsVine.GetAllSeries(offset);
-                    var series = items.Where(e => e.Publisher.Name.Contains(StudioName) || e.Publisher.Name.Contains(ExtraStudioName));
-                    foreach (var item in series)
+                    var items = await apiComicsVine.GetAllSeries(offset, StudioName, ExtraStudioName);
+
+                    foreach (var item in items)
                     {
                         Series.Add(item);
                     }
@@ -57,9 +55,8 @@ namespace WikiHero.ViewModels
                         ItemTreshold = -1;
                         return;
                     }
-                } else
-                        await dialogService.DisplayAlertAsync("Connection error ", Connectivity.NetworkAccess.ToString(), "Ok");
                 }
+
             catch (Exception ex)
             {
                 await dialogService.DisplayAlertAsync("Error", $"{ex.Message}", "Ok");
@@ -75,8 +72,7 @@ namespace WikiHero.ViewModels
             {
                 try
                 {
-                    var list = await apiComicsVine.GetAllSeries(offset);
-                    var series = list.Where(e => e.Publisher.Name.Contains(StudioName) || e.Publisher.Name.Contains(ExtraStudioName));
+                    var series = await apiComicsVine.GetAllSeries(offset,StudioName,ExtraStudioName);
                     Series = new ObservableCollection<Serie>(series);
                 }
                 catch (Exception ex)

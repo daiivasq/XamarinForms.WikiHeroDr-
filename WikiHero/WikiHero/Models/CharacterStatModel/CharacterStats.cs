@@ -13,6 +13,9 @@ namespace WikiHero.Models.CharacterStatModel
 
         [JsonProperty("publisher")]
         public string Publisher { get; set; }
+
+        [JsonProperty("alignment")]
+        public string Alignment { get; set; }
     }
 
     public class Images

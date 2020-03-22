@@ -1,4 +1,5 @@
-﻿using Prism.Navigation;
+﻿using Prism.Commands;
+using Prism.Navigation;
 using Prism.Services;
 using System;
 using System.Collections.Generic;
@@ -14,7 +15,12 @@ namespace WikiHero.ViewModels.DCViewModels
         private const int Offset = 0;
         public DcSeriesPageViewModel(INavigationService navigationService, IPageDialogService dialogService, ApiComicsVine apiComicsVine) : base(navigationService, dialogService, apiComicsVine, DcUniverse, WarnerBrothers, Offset)
         {
-            LoadSeries(Offset);
+            LoadListCommand = new DelegateCommand(async () =>
+            {
+                await LoadSeries(Offset);
+            });
+            LoadListCommand.Execute();
+           
         }
     }
 }

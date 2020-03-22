@@ -45,27 +45,21 @@ namespace WikiHero.ViewModels
                 return;
 
             IsBusy = true;
-           
+
             try
+            {
+                var items = await apiComicsVine.GetAllVolumes(offset, PublisherPrincipal, PublisherSecond, PublisherThird);
+                foreach (var item in items)
                 {
-                if (Connectivity.NetworkAccess == NetworkAccess.Internet)
-                {
-               
-                var items = await apiComicsVine.GetAllVolumes(offset);
-                    var volumes = items.Where(e => e.Publisher.Name.Contains(PublisherPrincipal)
-                    || e.Publisher.Name.Contains(PublisherSecond) || e.Publisher.Name.Contains(PublisherThird));
-                    foreach (var item in volumes)
-                    {
-                        Comics.Add(item);
-                    }
-                    if (offset == 1000)
-                    {
-                        ItemTreshold = -1;
-                        return;
-                    }
+                    Comics.Add(item);
                 }
-                else
-                    await dialogService.DisplayAlertAsync("Connection error ", Connectivity.NetworkAccess.ToString(), "Ok");
+                if (offset == 1000)
+                {
+                    ItemTreshold = -1;
+                    return;
+                }
+
+            
             }
 
             catch (Exception ex)
@@ -80,12 +74,9 @@ namespace WikiHero.ViewModels
         }
         protected async Task LoadComics(int offset)
         {
-            if (Connectivity.NetworkAccess == NetworkAccess.Internet)
-            {
             try
             {
-                var list = await apiComicsVine.GetAllVolumes(offset);
-                var comics = list.Where(e => e.Publisher.Name.Contains(PublisherPrincipal) || e.Publisher.Name.Contains(PublisherSecond) || e.Publisher.Name.Contains(PublisherThird));
+                var comics = await apiComicsVine.GetAllVolumes(offset,PublisherPrincipal,PublisherSecond,PublisherThird);
                 Comics = new ObservableCollection<Volume>(comics);
             }
             catch (Exception ex)
@@ -95,8 +86,6 @@ namespace WikiHero.ViewModels
 
             }
             }
-            else
-                await dialogService.DisplayAlertAsync("Connection error ", Connectivity.NetworkAccess.ToString(), "Ok");
         }
     }
-}
+

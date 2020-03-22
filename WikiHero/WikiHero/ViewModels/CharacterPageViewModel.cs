@@ -26,12 +26,12 @@ namespace WikiHero.ViewModels
             this.PublisherName = publisherName;
             ItemTresholdReachedCommand = new DelegateCommand(async () =>
             {
-                offeset = offeset + 100;
+                offeset += 100;
                 await ScrollLoadCharacters(offeset);
             });
 
         }
-       protected async Task ScrollLoadCharacters(int offset)
+        protected async Task ScrollLoadCharacters(int offset)
         {
             if (IsBusy)
                 return;
@@ -42,21 +42,20 @@ namespace WikiHero.ViewModels
             {
                 if (Connectivity.NetworkAccess == NetworkAccess.Internet)
                 {
-                    var items = await apiComicsVine.GetAllCharacter(offset);
-                var marvel = items.Where(e => e.Publisher.Name.Contains(PublisherName));
-                foreach (var item in marvel)
-                {
-                    Characters.Add(item);
+                    var items = await apiComicsVine.GetAllCharacter(offset, PublisherName);
+                  
+                    foreach (var item in items)
+                    {
+                        Characters.Add(item);
+                    }
+                    if (offset == 1000)
+                    {
+                        ItemTreshold = -1;
+                        return;
+                    }
                 }
-                if (offset == 1000)
-                {
-                    ItemTreshold = -1;
-                    return;
-                }
+                else await dialogService.DisplayAlertAsync("Connection error ", Connectivity.NetworkAccess.ToString(), "Ok");
             }
-            }
-            else
-                await dialogService.DisplayAlertAsync("Connection error ", Connectivity.NetworkAccess.ToString(), "Ok");
             catch (Exception ex)
             {
                 await dialogService.DisplayAlertAsync("Error", $"{ex.Message}", "Ok");
@@ -65,6 +64,7 @@ namespace WikiHero.ViewModels
             {
                 IsBusy = false;
             }
+      
         }
       protected async Task LoadCharacters(int offset)
         {
@@ -72,10 +72,8 @@ namespace WikiHero.ViewModels
             {
                 try
                 {
-
-                    var list = await apiComicsVine.GetAllCharacter(offset);
-                    var characters = list.Where(e => e.Publisher.Name.Contains(PublisherName));
-                    Characters = new ObservableCollection<Character>(characters);
+                    var list = await apiComicsVine.GetAllCharacter(offset, PublisherName);
+                    Characters = new ObservableCollection<Character>(list);
                 }
                 catch (Exception ex)
                 {

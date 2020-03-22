@@ -31,4 +31,9 @@
             <local:MarvelCharactersPage Title="Characters"/>
         </x:Arguments>
     </NavigationPage>
+    <NavigationPage Title="VS" BarBackgroundColor="{StaticResource MarvelPrincipalColor}">
+        <x:Arguments>
+            <local:MarvelCompareCharacterPage/>
+        </x:Arguments>
+    </NavigationPage>
 </TabbedPage>

@@ -34,4 +34,10 @@
             <local:DcCharactersPage Title="Characters"/>
         </x:Arguments>
     </NavigationPage>
+    <NavigationPage Title="VS" BarBackgroundColor="{StaticResource DCPrincipalColor}">
+        <x:Arguments>
+            <local:DcCompareCharacterPage/>
+        </x:Arguments>
+    </NavigationPage>
+  
 </TabbedPage>

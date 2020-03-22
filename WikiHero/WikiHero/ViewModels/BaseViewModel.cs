@@ -1,4 +1,5 @@
-﻿using Prism.Navigation;
+﻿using Prism.Commands;
+using Prism.Navigation;
 using Prism.Services;
 using Prism.Services.Dialogs;
 using System;
@@ -14,6 +15,7 @@ namespace WikiHero.ViewModels
         protected INavigationService navigationService;
         protected IPageDialogService dialogService;
         protected ApiComicsVine apiComicsVine;
+        public DelegateCommand LoadListCommand { get; set; }
         public BaseViewModel(INavigationService navigationService, IPageDialogService dialogService, ApiComicsVine apiComicsVine)
         {
             this.navigationService = navigationService;

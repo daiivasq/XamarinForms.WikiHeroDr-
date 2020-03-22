@@ -5,7 +5,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:pancakeview="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              mc:Ignorable="d"
-             x:Class="WikiHero.Views.ControlsViews.CardView">
+             x:Class="WikiHero.Views.ControlsViews.CardView"
+             >
   <ContentView.Content>
       <pancakeview:PancakeView BackgroundColor="Transparent"
                                CornerRadius="15">
