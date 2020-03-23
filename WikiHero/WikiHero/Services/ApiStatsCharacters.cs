@@ -15,27 +15,28 @@ namespace WikiHero.Services
         public ApiStatsCharacters()
         {
             Barrel.ApplicationId = Config.CacheKey;
+            Barrel.Current.EmptyAll();
         }
-        private bool NetworkAvalible()
+        private bool NetworkAvalible(string key)
         {
-            if (Connectivity.NetworkAccess != NetworkAccess.Internet || !Barrel.Current.IsExpired(key: Config.CacheKey))
+            if (Connectivity.NetworkAccess != NetworkAccess.Internet || !Barrel.Current.IsExpired(key: key))
             {
                 return false;
             }
             return true;
         }
-        public async Task<List<CharacterStats>> GetCharacterStats()
+        public async Task<List<CharacterStats>> GetCharacterStats(string publisher)
         {
-            if (!NetworkAvalible())
+            if (!NetworkAvalible($"{nameof(GetCharacterStats)}/{publisher}"))
             {
                 await Task.Yield();
-                return Barrel.Current.Get<List<CharacterStats>>(key: nameof(GetCharacterStats));
+                return Barrel.Current.Get<List<CharacterStats>>(key: $"{nameof(GetCharacterStats)}/{publisher}");
             }
 
             var getRequest = RestService.For<IApiCharacterStats>(Config.UrlApiCharactersStats);
             var stats = await getRequest.CharacterStats();
             var characters = stats.Where(e => e.Biography.Publisher != null).ToList(); 
-            Barrel.Current.Add(key: nameof(GetCharacterStats), characters, expireIn: TimeSpan.FromDays(1));
+            Barrel.Current.Add(key: $"{nameof(GetCharacterStats)}/{publisher}", characters, expireIn: TimeSpan.FromDays(1));
             return characters;
 
         }

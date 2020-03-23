@@ -33,7 +33,7 @@ namespace WikiHero.ViewModels
             this.PublisherThird = publisherThird;
             ItemTresholdReachedCommand = new DelegateCommand(async () =>
             {
-                offeset = offeset + 100;
+                offeset += 100;
                 await ScrollLoadComics(offeset);
             });
         }
@@ -48,7 +48,7 @@ namespace WikiHero.ViewModels
 
             try
             {
-                var items = await apiComicsVine.GetAllVolumes(offset, PublisherPrincipal, PublisherSecond, PublisherThird);
+                var items = await apiComicsVine.GetMoreVolumes(offset, PublisherPrincipal, PublisherSecond, PublisherThird);
                 foreach (var item in items)
                 {
                     Comics.Add(item);

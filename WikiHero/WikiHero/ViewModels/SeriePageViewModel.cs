@@ -44,7 +44,7 @@ namespace WikiHero.ViewModels
                 try
                 {
 
-                    var items = await apiComicsVine.GetAllSeries(offset, StudioName, ExtraStudioName);
+                    var items = await apiComicsVine.GetMoreSeries(offset, StudioName, ExtraStudioName);
 
                     foreach (var item in items)
                     {

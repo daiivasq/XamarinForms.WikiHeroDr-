@@ -19,11 +19,11 @@ namespace WikiHero.ViewModels
 
                 DcUniverseCommand = new DelegateCommand(async () =>
                 {
-                    await navigationService.NavigateAsync(new Uri($"{ConfigPageUri.TappedDcComicsPage}", UriKind.Relative));
+                    await navigationService.NavigateAsync(new Uri($"{ConfigPageUri.SharedTransitionNavigationPage}{ConfigPageUri.TappedDcComicsPage}", UriKind.Absolute));
                 });
                 MarvelCommand = new DelegateCommand(async () =>
                 {
-                    await navigationService.NavigateAsync(new Uri($"{ConfigPageUri.TappedMarvelPage}", UriKind.Relative));
+                    await navigationService.NavigateAsync(new Uri($"{ConfigPageUri.SharedTransitionNavigationPage}{ConfigPageUri.TappedMarvelPage}", UriKind.Relative));
                 });
        
           

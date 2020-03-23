@@ -23,6 +23,11 @@ namespace WikiHero.Helpers
 
         public const string TappedDcComicsPage = "/TappedDcComicsPage";
         public const string TappedMarvelPage = "/TappedMarvelPage";
+        public const string VsCharacterPage = "/VsCharacterPage";
+
+        public const string MarvelCompareCharacterPage = "/MarvelCompareCharacterPage";
+        public const string SharedTransitionNavigationPage = "/SharedTransitionNavigationPage"; 
+
 
     }
 }

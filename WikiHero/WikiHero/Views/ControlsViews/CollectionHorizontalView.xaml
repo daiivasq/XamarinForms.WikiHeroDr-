@@ -7,33 +7,38 @@
              x:Class="WikiHero.Views.ControlsViews.CollectionHorizontalView"
              x:Name="this">
   <ContentView.Content>
-        <CollectionView  ItemsSource="{Binding ItemsSource}"
+        <Grid>
+            <CollectionView  ItemsSource="{Binding ItemsSource}"
                       x:Name="CharactersList"
                          SelectedItem="{Binding SelectItem}"
                          SelectionMode="Single"
                          BindingContext="{x:Reference this}">
-            <CollectionView.ItemsLayout>
-                <LinearItemsLayout Orientation="Horizontal"
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Horizontal"
                                    ItemSpacing="10"
                                    />
-            </CollectionView.ItemsLayout>
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <pancakeview:PancakeView CornerRadius="10"
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <pancakeview:PancakeView CornerRadius="10"
                                              BackgroundColor="White"
                                              Padding="10"
                                              HasShadow="True">
-                        <StackLayout>
-                            <Image Source="{Binding Images.Sm}" 
-                                   HeightRequest="120"
-                                   WidthRequest="120"/>
-                            <Label Text="{Binding Name}"
+                            <StackLayout>
+                                <Image Source="{Binding Images.Sm}" 
+                                   HeightRequest="100"
+                                   WidthRequest="100"/>
+                                <Label Text="{Binding Name}"
                                    HorizontalOptions="CenterAndExpand"
                                    HeightRequest="40"/>
-                        </StackLayout>
-                    </pancakeview:PancakeView>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
-  </ContentView.Content>
+                            </StackLayout>
+                        </pancakeview:PancakeView>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <ActivityIndicator IsRunning="{Binding IsBusy}"
+                               HorizontalOptions="CenterAndExpand"
+                               IsVisible="{Binding IsBusy}" />
+        </Grid>
+    </ContentView.Content>
 </ContentView>

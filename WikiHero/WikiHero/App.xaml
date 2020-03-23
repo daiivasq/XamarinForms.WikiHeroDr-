@@ -5,6 +5,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
+             xmlns:sharedTransitions="clr-namespace:Plugin.SharedTransitions;assembly=Plugin.SharedTransitions"
              x:Class="WikiHero.App">
     <Application.Resources>
         <ResourceDictionary>
@@ -12,6 +13,9 @@
             <Color x:Key="DCPrincipalColor">#0476F2</Color>
             <Style TargetType="Label">
                 <Setter Property="TextColor" Value="Black"/>
+            </Style>
+            <Style TargetType="sharedTransitions:SharedTransitionNavigationPage">
+                <Setter Property="NavigationPage.HasNavigationBar" Value="False"/>
             </Style>
         </ResourceDictionary>
     </Application.Resources>

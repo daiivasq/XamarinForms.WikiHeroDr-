@@ -1,4 +1,5 @@
-﻿using Prism;
+﻿using Plugin.SharedTransitions;
+using Prism;
 using Prism.Ioc;
 using Prism.Unity;
 using System;
@@ -21,7 +22,7 @@ namespace WikiHero
         protected override void OnInitialized()
         {
             InitializeComponent();
-            NavigationService.NavigateAsync(new Uri($"{ConfigPageUri.MarvelVsDcComicsPage}", UriKind.Absolute));
+            NavigationService.NavigateAsync(new Uri($"{ConfigPageUri.SharedTransitionNavigationPage}{ConfigPageUri.MarvelVsDcComicsPage}", UriKind.Absolute));
 
         }
 
@@ -30,8 +31,8 @@ namespace WikiHero
             containerRegistry.RegisterInstance<ApiComicsVine>(new ApiComicsVine());
             containerRegistry.RegisterInstance<ApiStatsCharacters>(new ApiStatsCharacters());
             containerRegistry.RegisterForNavigation<MarvelVsDcComicsPage, MarvelVsDcComicsPageViewModel>();
-            containerRegistry.RegisterForNavigation<NavigationPage>();
-
+            containerRegistry.RegisterForNavigation<NavigationPage>(); 
+            containerRegistry.RegisterForNavigation<SharedTransitionNavigationPage>();
             containerRegistry.RegisterForNavigation<MarvelCharactersPage, MarvelCharacterPageViewModel>();
             containerRegistry.RegisterForNavigation<MarvelComicsPage, MarvelVolumePageViewModel>();
             containerRegistry.RegisterForNavigation<MarvelHomePage, MarvelHomePageViewModel>();

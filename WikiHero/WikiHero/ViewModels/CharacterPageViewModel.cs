@@ -42,7 +42,7 @@ namespace WikiHero.ViewModels
             {
                 if (Connectivity.NetworkAccess == NetworkAccess.Internet)
                 {
-                    var items = await apiComicsVine.GetAllCharacter(offset, PublisherName);
+                    var items = await apiComicsVine.GetMoreCharacter(offset, PublisherName);
                   
                     foreach (var item in items)
                     {
