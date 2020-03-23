@@ -9,10 +9,10 @@
     <ContentPage.Content>
         <StackLayout Padding="10,10,10,0">
             <Frame CornerRadius="20" HeightRequest="20" Opacity="0.8" HasShadow="True" >
-                <SearchBar HeightRequest="50" SearchCommand="{Binding SearhCommand}"
-                           SearchCommandParameter="{Binding .}"/>
+                <SearchBar HeightRequest="50" SearchCommand="{Binding SearchCommand}"
+                           SearchCommandParameter="{Binding Source= {x:Reference search},Path=Text}"  x:Name="search"/>
             </Frame>
-            <controlsviews:ColletionCardView ItemsSource="{Binding Comics}" ColorFrame="{StaticResource DCPrincipalColor}"/>
+            <controlsviews:ColletionCardView ItemsSource="{Binding Volumes}" ColorFrame="{StaticResource DCPrincipalColor}"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

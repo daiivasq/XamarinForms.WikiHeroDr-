@@ -20,7 +20,9 @@ namespace WikiHero.ViewModels
         public int ItemTreshold { get; set; }
         public bool IsBusy { get; set; }
         public string PublisherName { get; set; }
+        public DelegateCommand<string> SearchCommand { get; set; }
         public DelegateCommand ItemTresholdReachedCommand { get; set; }
+
         public CharacterPageViewModel(INavigationService navigationService, IPageDialogService dialogService, ApiComicsVine apiComicsVine,string publisherName,int offeset) : base(navigationService, dialogService, apiComicsVine)
         {
             this.PublisherName = publisherName;
@@ -28,6 +30,11 @@ namespace WikiHero.ViewModels
             {
                 offeset += 100;
                 await ScrollLoadCharacters(offeset);
+            });
+
+            SearchCommand = new DelegateCommand<string>(async (param) => 
+            {
+                await FindCharacter(param, 0);
             });
 
         }
@@ -85,6 +92,20 @@ namespace WikiHero.ViewModels
             else
                 await dialogService.DisplayAlertAsync("Connection error ", Connectivity.NetworkAccess.ToString(), "Ok");
 
+        }
+
+        protected async Task FindCharacter(string name, int offset) 
+        {
+            var list = await apiComicsVine.FindCharacter(name, offset);
+            if (string.IsNullOrEmpty(name))
+            {
+                await LoadCharacters(offset);
+            }
+            else
+            {
+                Characters = new ObservableCollection<Character>(list);
+            }
+           
         }
     }
 }

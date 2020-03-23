@@ -100,5 +100,30 @@ namespace WikiHero.Services
             Barrel.Current.Add(key: $"{nameof(GetAllSeries)}/{StudioName}", marvelOrDc, expireIn: TimeSpan.FromDays(1));
             return notNull.ToList();
         }
+        
+        public async Task<List<Character>> FindCharacter(string name, int offset)
+        {
+           
+            var getRequest = RestService.For<IApiComicsVine>(Config.UrlApiComicsVine);
+            var character = await getRequest.FindCharacter(name, Config.Apikey,offset);
+            var notNull = from item in character.Characters where item.Publisher != null select item;
+            return notNull.ToList();
+        }
+        public async Task<List<Volume>>FindVolume(string name, int offset)
+        {
+           
+            var getRequest = RestService.For<IApiComicsVine>(Config.UrlApiComicsVine);
+            var volume = await getRequest.FindVolume(name, Config.Apikey,offset);
+            var notNull = from item in volume.Volumes where item.Publisher != null select item;
+            return notNull.ToList();
+        }
+        public async Task<List<Serie>> FindSeries(string name, int offset)
+        {
+           
+            var getRequest = RestService.For<IApiComicsVine>(Config.UrlApiComicsVine);
+            var series = await getRequest.FindSeries(name, Config.Apikey,offset);
+            var notNull = from item in series.Series where item.Publisher != null select item;
+            return notNull.ToList();
+        }
     }
 }

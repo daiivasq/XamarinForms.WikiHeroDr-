@@ -22,6 +22,7 @@ namespace WikiHero.ViewModels
         protected string ExtraStudioName { get; set; }
         protected string StudioName { get; set; }
         public DelegateCommand ItemTresholdReachedCommand { get; set; }
+        public DelegateCommand<string> SearchCommand { get; set; }
 
 
         public SeriePageViewModel(INavigationService navigationService, IPageDialogService dialogService, ApiComicsVine apiComicsVine, string studioName, string ExtrastudioName, int offeset) : base(navigationService, dialogService, apiComicsVine)
@@ -32,6 +33,10 @@ namespace WikiHero.ViewModels
             {
                 offeset += 100;
                 await ScrollLoadSeries(offeset);
+            });
+            SearchCommand = new DelegateCommand<string>(async (param) =>
+            {
+                await FindSeries(param, 0);
             });
         }
 
@@ -87,6 +92,21 @@ namespace WikiHero.ViewModels
             
 
         }
-    
+
+        protected async Task FindSeries(string name, int offset)
+        {
+            var list = await apiComicsVine.FindSeries(name, offset);
+            if (string.IsNullOrEmpty(name))
+            {
+                await LoadSeries(offset);
+            }
+            else
+            {
+                Series = new ObservableCollection<Serie>(list);
+            }
+            
+            
+        }
+
     }
 }

@@ -16,7 +16,7 @@ namespace WikiHero.ViewModels
 {
     public class VolumePageViewModel : BaseViewModel
     {
-        public ObservableCollection<Volume> Comics { get; set; } = new ObservableCollection<Volume>();
+        public ObservableCollection<Volume> Volumes { get; set; } = new ObservableCollection<Volume>();
         public int ItemTreshold { get; set; }
         public bool IsBusy { get; set; }
         public string PublisherPrincipal { get; set; }
@@ -24,7 +24,7 @@ namespace WikiHero.ViewModels
         public string PublisherThird { get; set; }
 
         public DelegateCommand ItemTresholdReachedCommand { get; set; }
-
+        public DelegateCommand<string> SearchCommand => new DelegateCommand<string>(FindVolume);
 
         public VolumePageViewModel(INavigationService navigationService, IPageDialogService dialogService, ApiComicsVine apiComicsVine, string publisherPrincipal, string publisherSecond, string publisherThird, int offeset) : base(navigationService, dialogService, apiComicsVine)
         {
@@ -36,6 +36,7 @@ namespace WikiHero.ViewModels
                 offeset += 100;
                 await ScrollLoadComics(offeset);
             });
+            
         }
 
 
@@ -51,7 +52,7 @@ namespace WikiHero.ViewModels
                 var items = await apiComicsVine.GetMoreVolumes(offset, PublisherPrincipal, PublisherSecond, PublisherThird);
                 foreach (var item in items)
                 {
-                    Comics.Add(item);
+                    Volumes.Add(item);
                 }
                 if (offset == 1000)
                 {
@@ -72,12 +73,27 @@ namespace WikiHero.ViewModels
             }
 
         }
+        protected async void FindVolume(string name)
+        {
+         
+            if (string.IsNullOrEmpty(name))
+            {
+               await LoadComics(0);
+            }
+            else
+            {
+                var list = await apiComicsVine.FindVolume(name, 0);
+                Volumes = new ObservableCollection<Volume>(list);
+            }
+            
+        }
+
         protected async Task LoadComics(int offset)
         {
             try
             {
                 var comics = await apiComicsVine.GetAllVolumes(offset,PublisherPrincipal,PublisherSecond,PublisherThird);
-                Comics = new ObservableCollection<Volume>(comics);
+                Volumes = new ObservableCollection<Volume>(comics);
             }
             catch (Exception ex)
             {
@@ -85,7 +101,11 @@ namespace WikiHero.ViewModels
                 await dialogService.DisplayAlertAsync("Volume", $"{ex.Message}", "Ok");
 
             }
-            }
         }
-    }
+  }
+
+
+
+}
+
 
