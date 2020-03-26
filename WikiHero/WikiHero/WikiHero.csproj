@@ -39,6 +39,12 @@
     <Compile Update="Views\ControlsViews\CollectionStats.xaml.cs">
       <DependentUpon>CollectionStats.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\DcComicsViews\DcVolumePage.xaml.cs">
+      <DependentUpon>DcVolumePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\MarvelViews\MarvelVolumePage.xaml.cs">
+      <DependentUpon>MarvelVolumePage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
@@ -63,7 +69,7 @@
     <EmbeddedResource Update="Views\DcComicsViews\DcCharactersPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\DcComicsViews\DcComicsPage.xaml">
+    <EmbeddedResource Update="Views\DcComicsViews\DcVolumePage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\DcComicsViews\DcCompareCharacterPage.xaml">
@@ -78,6 +84,9 @@
     <EmbeddedResource Update="Views\DcComicsViews\TappedDcComicsPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Views\DetailComicPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\DetailPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -87,7 +96,7 @@
     <EmbeddedResource Update="Views\MarvelViews\MarvelCharactersPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\MarvelViews\MarvelComicsPage.xaml">
+    <EmbeddedResource Update="Views\MarvelViews\MarvelVolumePage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\MarvelViews\MarvelCompareCharacterPage.xaml">

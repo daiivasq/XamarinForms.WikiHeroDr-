@@ -12,13 +12,13 @@ namespace WikiHero.Helpers
         public const string DcComicsCharactersPage = "/DcCharactersPage";
         public const string MarvelCharactersPage = "/MarvelCharactersPage";
 
-        public const string DcComicsComicsPage = "/DcComicsPage";
-        public const string MarvelComicsPage = "/MarvelComicsPage";
+        public const string DcVolumePage = "/DcVolumePage";
+        public const string MarvelVolumePage = "/MarvelVolumePage";
 
         public const string DcComicsHomePage = "/DcComicsPage";
         public const string MarvelHomePage = "/MarvelComicsPage";
 
-        public const string DcComicsSeriesPage = "/DcSeriesPage";
+        public const string DcSeriesPage = "/DcSeriesPage";
         public const string MarvelSeriesPage = "/MarvelSeriesPage";
 
         public const string TappedDcComicsPage = "/TappedDcComicsPage";
@@ -28,6 +28,7 @@ namespace WikiHero.Helpers
         public const string MarvelCompareCharacterPage = "/MarvelCompareCharacterPage";
         public const string SharedTransitionNavigationPage = "/SharedTransitionNavigationPage";
         public const string DetailSeriesPage = "/DetailSeriesPage";
+        public const string DetailComicPage = "/DetailComicPage";
 
 
     }

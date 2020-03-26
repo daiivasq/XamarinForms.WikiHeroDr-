@@ -8,6 +8,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WikiHero.Helpers;
 using WikiHero.Models;
 using WikiHero.Services;
 using Xamarin.Essentials;
@@ -20,8 +21,25 @@ namespace WikiHero.ViewModels
         public int ItemTreshold { get; set; }
         public bool IsBusy { get; set; }
         public string PublisherPrincipal { get; set; }
+        private Volume selectionVolume;
+
+        public Volume SelectionVolume
+        {
+            get { return selectionVolume; }
+            set
+            {
+                selectionVolume = value; 
+
+                if (selectionVolume != null)
+                {
+                    SelectionVolumes(SelectionVolume);
+                }
+            }
+        }
+
         public string PublisherSecond{ get; set; }
         public string PublisherThird { get; set; }
+        public DelegateCommand RefreshCommand { get; set; }
         public string Text { get; set; }
         public DelegateCommand ItemTresholdReachedCommand { get; set; }
         public DelegateCommand SearchCommand => new DelegateCommand(FindVolume);
@@ -36,7 +54,16 @@ namespace WikiHero.ViewModels
                 offeset += 100;
                 await ScrollLoadComics(offeset);
             });
-            
+
+            RefreshCommand = new DelegateCommand(async () =>
+            {
+                IsBusy = true;
+                Text = null;
+                await LoadComics(0);
+                IsBusy = false;
+
+            });
+
         }
 
 
@@ -86,6 +113,15 @@ namespace WikiHero.ViewModels
                 Volumes = new ObservableCollection<Volume>(list);
             }
             
+        }
+
+        protected async void SelectionVolumes(Volume volume)
+        {
+            var param = new NavigationParameters
+            {
+                { nameof(Volume), volume }
+            };
+            await navigationService.NavigateAsync(new Uri($"{ConfigPageUri.DetailComicPage}", UriKind.Relative), param, false);
         }
 
         protected async Task LoadComics(int offset)

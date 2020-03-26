@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace WikiHero.Views.DcComicsViews
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class DcComicsPage : ContentPage
+    public partial class DcVolumePage : ContentPage
     {
-        public DcComicsPage()
+        public DcVolumePage()
         {
             InitializeComponent();
         }

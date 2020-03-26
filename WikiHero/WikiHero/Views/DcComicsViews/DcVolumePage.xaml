@@ -5,15 +5,20 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:controlsviews="clr-namespace:WikiHero.Views.ControlsViews"
              mc:Ignorable="d"
-             x:Class="WikiHero.Views.MarvelViews.MarvelComicsPage">
+             x:Class="WikiHero.Views.DcComicsViews.DcVolumePage">
     <ContentPage.Content>
         <StackLayout Padding="10,10,10,0">
             <Frame CornerRadius="20" HeightRequest="20" Opacity="0.8" HasShadow="True" >
-                <SearchBar HeightRequest="50" 
-                           Text="{Binding Text,Mode=TwoWay}"
-                           SearchCommand="{Binding SearchCommand}" />
+                <SearchBar HeightRequest="50" SearchCommand="{Binding SearchCommand}"
+                          Text="{Binding Text}" x:Name="search"/>
             </Frame>
-            <controlsviews:CollectionViewHorizontal ItemsSource="{Binding Volumes}"/>
+            <RefreshView Command="{Binding RefreshCommand}" 
+                         IsRefreshing="{Binding IsBusy}" >
+                
+                <controlsviews:CollectionViewHorizontal ItemsSource="{Binding Volumes}" 
+                                                        ColorFrame="{StaticResource DCPrincipalColor}"/>
+                
+            </RefreshView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

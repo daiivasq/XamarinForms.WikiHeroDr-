@@ -12,9 +12,14 @@
                 <SearchBar HeightRequest="50" 
                            x:Name="search"
                            SearchCommand="{Binding SearchCommand}"
-                           SearchCommandParameter="{Binding Source= {x:Reference search},Path=Text}"/>
+                           Text="{Binding Text}"/>
             </Frame>
-            <controlsviews:ControlListView ItemsSource="{Binding Characters}"/>
+            <RefreshView Command="{Binding RefreshCommand}" 
+                         IsRefreshing="{Binding IsBusy}" >
+
+                <controlsviews:CollectionViewHorizontal ItemsSource="{Binding Characters}"/>
+
+            </RefreshView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

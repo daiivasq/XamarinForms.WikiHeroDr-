@@ -34,7 +34,7 @@ namespace WikiHero.Views.ControlsViews
         {
             if (!(bindable is CollectionViewHorizontal control)) return;
             var items = newValue;
-            control.publisherList.SelectedItem = (Serie)items;
+            control.publisherList.SelectedItem = (object)items;
         }
         public Color ColorFrame
         {

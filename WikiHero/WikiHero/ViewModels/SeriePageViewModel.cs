@@ -19,11 +19,13 @@ namespace WikiHero.ViewModels
     {
         public ObservableCollection<Serie> Series { get; set; } = new ObservableCollection<Serie>();
         public int ItemTreshold { get; set; }
+        public DelegateCommand RefreshCommand { get; set; }
         public bool IsBusy { get; set; }
         protected string ExtraStudioName { get; set; }
         protected string StudioName { get; set; }
         public DelegateCommand ItemTresholdReachedCommand { get; set; }
-        public DelegateCommand<string> SearchCommand { get; set; }
+        public string Text { get; set; }
+        public DelegateCommand SearchCommand { get; set; }
         private Serie selectSerie;
 
         public Serie SelectSerie
@@ -44,14 +46,24 @@ namespace WikiHero.ViewModels
         {
             this.ExtraStudioName = ExtrastudioName;
             this.StudioName = studioName;
+            RefreshCommand = new DelegateCommand(async()=> 
+            {
+                IsBusy = true;
+                Text = null;
+                await  LoadSeries(0);
+                IsBusy = false;
+                
+            });
+
             ItemTresholdReachedCommand = new DelegateCommand(async () =>
             {
                 offeset += 100;
                 await ScrollLoadSeries(offeset);
             });
-            SearchCommand = new DelegateCommand<string>(async (param) =>
+
+            SearchCommand = new DelegateCommand(async () =>
             {
-                await FindSeries(param, 0);
+                await FindSeries(Text, 0);
             });
         }
 
@@ -88,7 +100,7 @@ namespace WikiHero.ViewModels
         }
         protected async void SelectionSeries(Serie serie)
         {
-            var navigateTo = StudioName == "Marvel" ? ConfigPageUri.MarvelSeriesPage : ConfigPageUri.DcComicsSeriesPage;
+            var navigateTo = StudioName == "Marvel" ? ConfigPageUri.MarvelSeriesPage : ConfigPageUri.DcSeriesPage;
             var param = new NavigationParameters
             {
                 { nameof(Serie), serie }

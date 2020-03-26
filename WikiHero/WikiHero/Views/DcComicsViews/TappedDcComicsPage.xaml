@@ -10,7 +10,8 @@
             android:TabbedPage.ToolbarPlacement="Bottom"
             BarBackgroundColor="{StaticResource DCPrincipalColor}"
             BarTextColor="White"
-           >
+           NavigationPage.HasNavigationBar="False">
+    
     <NavigationPage Title="Home" IconImageSource="dc.png" BarBackgroundColor="{StaticResource DCPrincipalColor}">
         <x:Arguments>
             <local:DcHomePage Title="Home"/>

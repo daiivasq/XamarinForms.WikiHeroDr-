@@ -11,9 +11,16 @@
             <Frame CornerRadius="20" HeightRequest="20" Opacity="0.5" HasShadow="True" >
                 <SearchBar HeightRequest="50"
                            SearchCommand="{Binding SearchCommand}"
-                           SearchCommandParameter="{Binding Source= {x:Reference search},Path=Text}" x:Name="search"/>
+                           x:Name="search"
+                           Text="{Binding Text}"/>
             </Frame>
-            <controlsviews:ControlListView ItemsSource="{Binding Characters}"/>
+            <RefreshView Command="{Binding RefreshCommand}" 
+                         IsRefreshing="{Binding IsBusy}" >
+
+                <controlsviews:CollectionViewHorizontal ItemsSource="{Binding Characters}" 
+                                                        ColorFrame="{StaticResource DCPrincipalColor}"/>
+
+            </RefreshView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

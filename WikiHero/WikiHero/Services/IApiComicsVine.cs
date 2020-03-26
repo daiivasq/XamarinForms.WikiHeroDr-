@@ -32,6 +32,9 @@ namespace WikiHero.Services
         
        [Get("/api/episodes?format=json&api_key={api_key}&filter=series:{id}")]
         Task<ResultEpisode> FindEpisode(string api_key, int id);
+        
+        [Get("/api/issues?format=json&api_key={api_key}&limit=100&filter=volume:{id}")]
+        Task<ResultComics> FindComics(string api_key, int id);
 
 
 

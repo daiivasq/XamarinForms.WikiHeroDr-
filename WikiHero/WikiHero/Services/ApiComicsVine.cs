@@ -132,5 +132,12 @@ namespace WikiHero.Services
             var episode = await getRequest.FindEpisode(Config.Apikey, idseries);
             return episode.Results.ToList();
         }
+        public async Task<List<Comic>> GetComics(int idcomics)
+        {
+
+            var getRequest = RestService.For<IApiComicsVine>(Config.UrlApiComicsVine);
+            var comics = await getRequest.FindComics(Config.Apikey, idcomics);
+            return comics.Results.ToList();
+        }
     }
 }

@@ -11,9 +11,11 @@
         <Frame CornerRadius="20" HeightRequest="20" Opacity="0.8" HasShadow="True" >
             <SearchBar HeightRequest="50" 
                        SearchCommand="{Binding SearchCommand}"
-                           SearchCommandParameter="{Binding Source= {x:Reference search},Path=Text}" x:Name="search"/>
+                           Text="{Binding Text}" 
+                       x:Name="search"/>
         </Frame>
-        <controlsviews:CollectionViewHorizontal ItemsSource="{Binding Series}"
-                                                SelectItem="{Binding SelectSerie, Mode =TwoWay}"/>
+        <RefreshView Command="{Binding RefreshCommand}" IsRefreshing="{Binding IsBusy}" >
+            <controlsviews:CollectionViewHorizontal ItemsSource="{Binding Series}"/>
+        </RefreshView>
     </StackLayout>
 </ContentPage>
