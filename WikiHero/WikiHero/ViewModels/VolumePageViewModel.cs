@@ -22,9 +22,9 @@ namespace WikiHero.ViewModels
         public string PublisherPrincipal { get; set; }
         public string PublisherSecond{ get; set; }
         public string PublisherThird { get; set; }
-
+        public string Text { get; set; }
         public DelegateCommand ItemTresholdReachedCommand { get; set; }
-        public DelegateCommand<string> SearchCommand => new DelegateCommand<string>(FindVolume);
+        public DelegateCommand SearchCommand => new DelegateCommand(FindVolume);
 
         public VolumePageViewModel(INavigationService navigationService, IPageDialogService dialogService, ApiComicsVine apiComicsVine, string publisherPrincipal, string publisherSecond, string publisherThird, int offeset) : base(navigationService, dialogService, apiComicsVine)
         {
@@ -73,16 +73,16 @@ namespace WikiHero.ViewModels
             }
 
         }
-        protected async void FindVolume(string name)
+        protected async void FindVolume()
         {
          
-            if (string.IsNullOrEmpty(name))
+            if (string.IsNullOrEmpty(Text))
             {
-               await LoadComics(0);
+                await LoadComics(0);
             }
             else
             {
-                var list = await apiComicsVine.FindVolume(name, 0);
+                var list = await apiComicsVine.FindVolume(Text, 0);
                 Volumes = new ObservableCollection<Volume>(list);
             }
             

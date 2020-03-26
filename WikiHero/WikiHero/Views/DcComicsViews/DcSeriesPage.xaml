@@ -12,7 +12,7 @@
                 <SearchBar HeightRequest="50" SearchCommand="{Binding SearchCommand}"
                            SearchCommandParameter="{Binding Source= {x:Reference search},Path=Text}" x:Name="search"/>
             </Frame>
-            <controlsviews:ColletionCardView ItemsSource="{Binding Series}"/>
+            <controlsviews:CollectionViewHorizontal ItemsSource="{Binding Series}"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

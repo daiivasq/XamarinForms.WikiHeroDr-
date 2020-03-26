@@ -29,6 +29,10 @@ namespace WikiHero.Services
         
         [Get("/api/series_list?format=json&filter=name:{name}&api_key={api_key}")]
         Task<ResultSeries> FindSeries(string name, string api_key, int offset);
+        
+       [Get("/api/episodes?format=json&api_key={api_key}&filter=series:{id}")]
+        Task<ResultEpisode> FindEpisode(string api_key, int id);
+
 
 
     }

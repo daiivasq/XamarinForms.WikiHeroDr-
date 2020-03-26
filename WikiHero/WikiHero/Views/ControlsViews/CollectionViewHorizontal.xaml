@@ -5,11 +5,14 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:pancakeview="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              mc:Ignorable="d"
-             x:Class="WikiHero.Views.ControlsViews.ColletionCardView"
+             x:Class="WikiHero.Views.ControlsViews.CollectionViewHorizontal"
              x:Name="this">
     <ContentView.Content>
         <CollectionView ItemsSource="{Binding ItemsSource}"
                       x:Name="publisherList"
+                         SelectedItem="{Binding SelectItem}"
+                         SelectionMode="Single"
+                        BindingContext="{x:Reference this}"
                        RemainingItemsThreshold="{Binding ItemTreshold}"
                        RemainingItemsThresholdReachedCommand="{Binding ItemTresholdReachedCommand}">
             <CollectionView.ItemsLayout>

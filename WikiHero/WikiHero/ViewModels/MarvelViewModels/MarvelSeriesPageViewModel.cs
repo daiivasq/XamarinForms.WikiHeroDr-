@@ -4,6 +4,7 @@ using Prism.Services;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using WikiHero.Models;
 using WikiHero.Services;
 
 namespace WikiHero.ViewModels.MarvelViewModels
@@ -23,5 +24,7 @@ namespace WikiHero.ViewModels.MarvelViewModels
             LoadListCommand.Execute();
           
         }
+
+
     }
 }

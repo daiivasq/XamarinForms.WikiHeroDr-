@@ -11,21 +11,21 @@ using Xamarin.Forms.Xaml;
 namespace WikiHero.Views.ControlsViews
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class CollectionHorizontalView : ContentView
+    public partial class CollectionStats : ContentView
     {
         public static readonly BindableProperty ItemsSourceProperty = BindableProperty.Create(
           nameof(ItemsSource),
           typeof(IList),
-          typeof(CollectionHorizontalView),
+          typeof(CollectionStats),
           propertyChanged: ColletionViewChanged);
 
         
-        public static readonly BindableProperty ColorProperty = BindableProperty.Create(nameof(ColorFrame), typeof(Color), typeof(CollectionHorizontalView));
+        public static readonly BindableProperty ColorProperty = BindableProperty.Create(nameof(ColorFrame), typeof(Color), typeof(CollectionStats));
         
         public static readonly BindableProperty SelectItemProperty = BindableProperty.Create(
          nameof(SelectItem),
          typeof(object),
-         typeof(CollectionHorizontalView),
+         typeof(CollectionStats),
          propertyChanged: SelectItemChanged);
 
 
@@ -46,17 +46,17 @@ namespace WikiHero.Views.ControlsViews
         }
         private static void ColletionViewChanged(BindableObject bindable, object oldValue, object newValue)
         {
-            if (!(bindable is CollectionHorizontalView control)) return;
+            if (!(bindable is CollectionStats control)) return;
             var items = (IList)newValue;
             control.CharactersList.ItemsSource = items;
         }
         private static void SelectItemChanged(BindableObject bindable, object oldValue, object newValue)
         {
-            if (!(bindable is CollectionHorizontalView control)) return;
+            if (!(bindable is CollectionStats control)) return;
             var items = newValue;
             control.CharactersList.SelectedItem = (CharacterStats)items;
         }
-        public CollectionHorizontalView()
+        public CollectionStats()
         {
             InitializeComponent();
             

@@ -74,8 +74,8 @@ namespace WikiHero.Services
             var volumes = await getRequest.GetAllVolumes(Config.Apikey,offset);
             var notNull = from item in volumes.Volumes where item.Publisher != null select item;
             var marvelOrDc = notNull.Where(e => e.Publisher.Name.Contains(PublisherPrincipal) || e.Publisher.Name.Contains(PublisherSecond) || e.Publisher.Name.Contains(PublisherThird));
-            Barrel.Current.Add(key:$"{nameof(GetAllVolumes)}/{PublisherPrincipal}", marvelOrDc, expireIn: TimeSpan.FromDays(1));
-            return marvelOrDc.ToList();;
+            Barrel.Current.Add(key:$"{nameof(GetAllVolumes)}/{PublisherPrincipal}", marvelOrDc.ToList(), expireIn: TimeSpan.FromDays(1));
+            return marvelOrDc.ToList();
         }
         public async Task<List<Serie>> GetMoreSeries(int offset, string StudioName, string ExtraStudioName)
         {
@@ -96,8 +96,8 @@ namespace WikiHero.Services
             var getRequest = RestService.For<IApiComicsVine>(Config.UrlApiComicsVine);
             var series = await getRequest.GetAllSeries(Config.Apikey,offset);
             var notNull = from item in series.Series where item.Publisher != null select item;
-            var marvelOrDc = notNull.Where(e => e.Publisher.Name.Contains(StudioName) || e.Publisher.Name.Contains(ExtraStudioName));
-            Barrel.Current.Add(key: $"{nameof(GetAllSeries)}/{StudioName}", marvelOrDc, expireIn: TimeSpan.FromDays(1));
+            var marvelOrDc = notNull.Where(e => e.Publisher.Name == StudioName || e.Publisher.Name == ExtraStudioName);
+            Barrel.Current.Add(key: $"{nameof(GetAllSeries)}/{StudioName}", marvelOrDc.ToList(), expireIn: TimeSpan.FromDays(1));
             return notNull.ToList();
         }
         
@@ -124,6 +124,13 @@ namespace WikiHero.Services
             var series = await getRequest.FindSeries(name, Config.Apikey,offset);
             var notNull = from item in series.Series where item.Publisher != null select item;
             return notNull.ToList();
+        }
+        public async Task<List<Episode>> GetEpisode(int idseries)
+        {
+
+            var getRequest = RestService.For<IApiComicsVine>(Config.UrlApiComicsVine);
+            var episode = await getRequest.FindEpisode(Config.Apikey, idseries);
+            return episode.Results.ToList();
         }
     }
 }

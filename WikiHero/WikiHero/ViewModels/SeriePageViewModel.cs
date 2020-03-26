@@ -8,6 +8,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WikiHero.Helpers;
 using WikiHero.Models;
 using WikiHero.Services;
 using Xamarin.Essentials;
@@ -23,6 +24,20 @@ namespace WikiHero.ViewModels
         protected string StudioName { get; set; }
         public DelegateCommand ItemTresholdReachedCommand { get; set; }
         public DelegateCommand<string> SearchCommand { get; set; }
+        private Serie selectSerie;
+
+        public Serie SelectSerie
+        {
+            get { return selectSerie; }
+            set { 
+                selectSerie = value;
+                if (selectSerie!=null)
+                {
+                    SelectionSeries(SelectSerie);
+                }
+            }
+        }
+
 
 
         public SeriePageViewModel(INavigationService navigationService, IPageDialogService dialogService, ApiComicsVine apiComicsVine, string studioName, string ExtrastudioName, int offeset) : base(navigationService, dialogService, apiComicsVine)
@@ -70,6 +85,15 @@ namespace WikiHero.ViewModels
             {
                 IsBusy = false;
             }
+        }
+        protected async void SelectionSeries(Serie serie)
+        {
+            var navigateTo = StudioName == "Marvel" ? ConfigPageUri.MarvelSeriesPage : ConfigPageUri.DcComicsSeriesPage;
+            var param = new NavigationParameters
+            {
+                { nameof(Serie), serie }
+            };
+            await navigationService.NavigateAsync(new Uri($"{ConfigPageUri.DetailSeriesPage}",UriKind.Relative), param, false);
         }
         protected async Task LoadSeries(int offset)
         {

@@ -31,6 +31,7 @@ namespace WikiHero
             containerRegistry.RegisterInstance<ApiComicsVine>(new ApiComicsVine());
             containerRegistry.RegisterInstance<ApiStatsCharacters>(new ApiStatsCharacters());
             containerRegistry.RegisterForNavigation<MarvelVsDcComicsPage, MarvelVsDcComicsPageViewModel>();
+            containerRegistry.RegisterForNavigation<DetailSeriesPage, DetailSeriesPageViewModel>();
             containerRegistry.RegisterForNavigation<NavigationPage>(); 
             containerRegistry.RegisterForNavigation<SharedTransitionNavigationPage>();
             containerRegistry.RegisterForNavigation<MarvelCharactersPage, MarvelCharacterPageViewModel>();
@@ -47,6 +48,7 @@ namespace WikiHero
             containerRegistry.RegisterForNavigation<TappedDcComicsPage, TappedDcComicsPageViewModel>();
             containerRegistry.RegisterForNavigation<DcCompareCharacterPage, DcCompareCharacterPageViewModel>();
 
+            
 
 
         }

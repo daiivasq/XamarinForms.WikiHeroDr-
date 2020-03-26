@@ -26,7 +26,8 @@ namespace WikiHero.Helpers
         public const string VsCharacterPage = "/VsCharacterPage";
 
         public const string MarvelCompareCharacterPage = "/MarvelCompareCharacterPage";
-        public const string SharedTransitionNavigationPage = "/SharedTransitionNavigationPage"; 
+        public const string SharedTransitionNavigationPage = "/SharedTransitionNavigationPage";
+        public const string DetailSeriesPage = "/DetailSeriesPage";
 
 
     }

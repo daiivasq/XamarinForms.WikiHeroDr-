@@ -33,20 +33,32 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Views\ControlsViews\CollectionViewHorizontal.xaml.cs">
+      <DependentUpon>CollectionViewHorizontal.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\ControlsViews\CollectionStats.xaml.cs">
+      <DependentUpon>CollectionStats.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
     <EmbeddedResource Update="Views\ControlsViews\CardCharacterView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\ControlsViews\CardView.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\ControlsViews\CollectionHorizontalView.xaml">
+    <EmbeddedResource Update="Views\ControlsViews\CollectionStats.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\ControlsViews\ColletionCardView.xaml">
+    <EmbeddedResource Update="Views\ControlsViews\CollectionViewHorizontal.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\ControlsViews\ControlListView.xaml">
       <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\ControlsViews\DetailView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\DcComicsViews\DcCharactersPage.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -65,6 +77,12 @@
     </EmbeddedResource>
     <EmbeddedResource Update="Views\DcComicsViews\TappedDcComicsPage.xaml">
       <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\DetailPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\DetailSeriesPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\MarvelViews\MarvelCharactersPage.xaml">
       <Generator>MSBuild:Compile</Generator>

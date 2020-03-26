@@ -64,7 +64,7 @@
                     <ColumnDefinition Width="100"/>
                     <ColumnDefinition Width="1*"/>
                 </Grid.ColumnDefinitions>
-                <controlsviews:CollectionHorizontalView ItemsSource="{Binding HeroesCharacters}"
+                <controlsviews:CollectionStats ItemsSource="{Binding HeroesCharacters}"
                                                     VerticalOptions="StartAndExpand"
                                                     SelectItem="{Binding SelectHeroes,Mode=TwoWay}"
                                                     Grid.ColumnSpan="3"
@@ -107,7 +107,7 @@
                                               
                 />
 
-                <controlsviews:CollectionHorizontalView ItemsSource="{Binding VillainCharacters}"
+                <controlsviews:CollectionStats ItemsSource="{Binding VillainCharacters}"
                                                     VerticalOptions="EndAndExpand"
                                                     SelectItem="{Binding SelectVillain,Mode=TwoWay}"
                                                     Grid.Row="2"

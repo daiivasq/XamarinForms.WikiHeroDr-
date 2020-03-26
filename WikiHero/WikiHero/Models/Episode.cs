@@ -5,14 +5,16 @@ using System.Text;
 
 namespace WikiHero.Models
 {
-    public class Serie
+    public class Episode
     {
-
         [JsonProperty("aliases")]
-        public string Aliases { get; set; }
+        public object Aliases { get; set; }
 
-        [JsonProperty("count_of_episodes")]
-        public int CountOfEpisodes { get; set; }
+        [JsonProperty("api_detail_url")]
+        public string ApiDetailUrl { get; set; }
+
+        [JsonProperty("air_date")]
+        public string AirDate { get; set; }
 
         [JsonProperty("date_added")]
         public string DateAdded { get; set; }
@@ -20,6 +22,8 @@ namespace WikiHero.Models
         [JsonProperty("date_last_updated")]
         public string DateLastUpdated { get; set; }
 
+        [JsonProperty("deck")]
+        public object Deck { get; set; }
 
         [JsonProperty("description")]
         public string Description { get; set; }
@@ -30,20 +34,24 @@ namespace WikiHero.Models
         [JsonProperty("image")]
         public Image Image { get; set; }
 
+        [JsonProperty("episode_number")]
+        public string EpisodeNumber { get; set; }
+
         [JsonProperty("name")]
         public string Name { get; set; }
 
-        [JsonProperty("publisher")]
-        public Publisher Publisher { get; set; }
+        [JsonProperty("site_detail_url")]
+        public string SiteDetailUrl { get; set; }
 
-        [JsonProperty("start_year")]
-        public string StartYear { get; set; }
+        [JsonProperty("series")]
+        public Serie Serie { get; set; }
     }
 
-    public class ResultSeries
+    public class ResultEpisode
     {
 
         [JsonProperty("results")]
-        public IList<Serie> Series { get; set; }
+        public IList<Episode> Results { get; set; }
+
     }
 }
